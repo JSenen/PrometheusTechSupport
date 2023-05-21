@@ -1,0 +1,6 @@
+[submodule "APIDoc"]
+	path = APIDoc
+	url = https://github.com/JSenen/PrometheusTechSupport_APIDoc
+[submodule "API"]
+	path = API
+	url = https://github.com/JSenen/PrometheusTechSupport_API
