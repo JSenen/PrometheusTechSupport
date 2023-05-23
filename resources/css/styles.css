@@ -1,3 +1,16 @@
+:root {
+  --primary: #27374D;
+  --secondary: #526D82;
+  --terciary: #9DB2BF;
+  --cuarto: #DDE6ED;
+
+
+}
+
+.label_login {
+  color: #DDE6ED;
+}
+
 html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
