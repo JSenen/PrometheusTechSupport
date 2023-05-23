@@ -2,20 +2,22 @@
 include('./view/header.php');
 include('./view/footer.php');
 ?>
-
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<section id="sidebar"> 
+  <div class="white-label">
+  </div> 
+  <div id="sidebar-nav">   
+    <ul>
+      <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="#"><i class="fa fa-desktop"></i> My Website</a></li>
+      <li><a href="#"><i class="fa fa-usd"></i> Ecommerce</a></li>
+      <li><a href="#"><i class="fa fa-pencil-square-o"></i> My Blog</a></li>
+      <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
+      <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
+      <li><a href="#"><i class="fa fa-comments-o"></i>Social Marketing</a></li>
+      <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>     
+      <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
+      <li><a href="#"><i class="fa fa-calendar-o"></i> Reservations</a></li>
+      <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+    </ul>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</section>
