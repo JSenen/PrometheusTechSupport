@@ -19,6 +19,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --bs-personal: #27374D;
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -7852,7 +7853,10 @@ textarea.form-control-lg {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
-
+.bg_personal {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--primary), var(--bs-bg-opacity)) !important;
+}
 .bg-black {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
@@ -11532,7 +11536,7 @@ textarea.form-control-lg {
   position: absolute;
   transition: left 0.31s;
   left: 0;
-  top: 0
+  top: 0;
 }
  
   .navbar-brand {
@@ -11564,7 +11568,7 @@ textarea.form-control-lg {
   bottom: 0;
   width: 100%;
   height: 30px; /* Altura del footer */
-  background: #192027;
+  background: #27374D;
   text-align: center;
   color: #999;
   
@@ -11573,12 +11577,12 @@ textarea.form-control-lg {
 .footer p {
   margin: 0;
   font-size: 15px;
-  background-color: #000;
+  background-color: #27374D;
 }
 
 .footer p a {
   color: #5867dd;
-  background-color: #000;
+  background-color: #27374D;
 }
 
 .footer p a:hover {
