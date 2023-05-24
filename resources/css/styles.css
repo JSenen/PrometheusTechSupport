@@ -11522,4 +11522,65 @@ textarea.form-control-lg {
   flex-flow: row wrap;
 }
 
-/* Add  Button */
+/* VERTICAL NAV-BAR */
+
+
+.navbar-vertical{
+  width: 150px;
+  height: 100vh;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  transition: left 0.31s;
+  left: 0;
+  top: 0
+}
+ 
+  .navbar-brand {
+    margin-right: 0;
+    padding-right: 1.5rem;
+    display: block
+
+  }
+   
+  .navbar-toggler {
+    border: none;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.75rem;
+    cursor: pointer
+  }
+   
+  ul.navbar-nav {
+    width: 100%;
+    margin-top: 1rem
+  }
+
+  /** MINI FOOTER **/
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Altura del footer */
+  background: #192027;
+  text-align: center;
+  color: #999;
+  
+  
+}
+.footer p {
+  margin: 0;
+  font-size: 15px;
+  background-color: #000;
+}
+
+.footer p a {
+  color: #5867dd;
+  background-color: #000;
+}
+
+.footer p a:hover {
+  color: #34bfa3;
+}
