@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../resources/css/styles.css" rel="stylesheet" />
-</head>
-<body>
+<?php
+include('header.php');
+?>
 <section class="section-log">
 		<div class="container">
 		  <div class="user signinBx">
@@ -23,5 +15,6 @@
 			</div>
 		  </div>
 	  </section>
-</body>
-</html>
+<?php
+include('footer.php');
+?>
