@@ -8,13 +8,13 @@ include('header.php');
 			<div class="formBx">
 			  <form action="login" method="post">
 				<h2>Login</h2>
-				<input type="text" name="username" placeholder="Usuario" />
-				<input type="password" name="password" placeholder="Password" />
-				<input type="submit" class="btn btn-primary" value="Login" />
-				<p class="signup">
-				  ¿No dispone de cuenta?
-				  <a href="#" onclick="toggleForm();">Crear registro.</a>
-				</p>
+					<input type="text" name="username" placeholder="Usuario" />
+					<input type="password" name="password" placeholder="Password" />
+					<input type="submit" class="btn btn-primary" value="Login" />
+						<p class="signup">
+							¿No dispone de cuenta?
+							<a href="#" onclick="toggleForm();">Crear registro.</a>
+						</p>
 			  </form>
 			</div>
 		  </div>
