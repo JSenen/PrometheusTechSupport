@@ -4,7 +4,7 @@ include('header.php');
 <section class="section-log">
 		<div class="container">
 		  <div class="user signinBx">
-			<div class="imgBx"><img src="../resources/img/computer.jpg" alt="" /></div>
+			<div class="imgBx"><img src="./resources/img/computer.jpg" width="50" height="50" alt="" /></div>
 			<div class="formBx">
 			  <form action="login" method="post">
 				<h2>Login</h2>
@@ -37,7 +37,7 @@ include('header.php');
 			  </form>
 			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
-			<div class="imgBx bg-dark"><img src="../resources/img/parche-GAT2.png" alt="" /></div>
+			<div class="imgBx bg-dark"><img src="./resources/img/parche-GAT2.png" width="50" height="50" alt="" /></div>
 		  </div>
 		</div>
 	  </section>

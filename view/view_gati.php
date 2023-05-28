@@ -4,7 +4,7 @@ include('header.php');
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
   <ul class="navbar-nav">
-  <img src="../resources/img/parche-GATI.png" width="100" height="100" alt="" class="footer-img">
+  <img src="../resources/img/parche-GAT2.png" width="100" height="100" alt="" class="footer-img">
       <li class="nav-item active">
         <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
       </li>

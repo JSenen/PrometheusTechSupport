@@ -10,8 +10,8 @@
     <!-- Bootstrap icons-->
     
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../resources/css/styles.css" rel="stylesheet" />
-    <script src="../resources/js/script.js"></script>
+    <link href="./resources/css/styles.css" rel="stylesheet" />
+    <script src="./resources/js/script.js"></script>
 </head>
 <body>
   
