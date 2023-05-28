@@ -35,7 +35,7 @@ include('header.php');
 			  </form>
 			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
-			<div class="imgBx bg-dark"><img src="./resources/img/parche-GAT2.png" width="50" height="50" alt="" /></div>
+			<div class="imgBx bg-dark"><img src="./resources/img/parche-GATI3.png" width="50" height="50" alt="" /></div>
 		  </div>
 		</div>
 	  </section>
