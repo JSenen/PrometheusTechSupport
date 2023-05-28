@@ -22,13 +22,11 @@ include('header.php');
 			<div class="formBx">
 			  <form action="new-user" method="post">
 				<h2>Create an account</h2>
-				<input type="text" name="firstname" placeholder="Firtsname" />
-			  	<input type="text" name="surname" placeholder="Surname" />
-			  	<input type="text" name="dni" placeholder="DNI" />
-				<input type="email" name="email" placeholder="Email Address" />
-			  	<input type="text" name="username" placeholder="Username" />
-				<input type="password" name="pass" placeholder="Create Password" />
-				<input type="password" name="pass" placeholder="Confirm Password" />
+				<input type="text" name="firstname" placeholder="TIP" />
+			  <input type="text" name="surname" placeholder="Telefono Oficial" />
+				<input type="text" name="unit" placeholder="Unidad" />
+				<input type="password" name="pass" placeholder="Crear Password" />
+				<input type="password" name="pass" placeholder="Confirmar Password" />
 				<input type="submit" class="btn btn-primary" value="Registrar" />
 				<p class="signup">
 				  ¿Ya tiene una cuenta ?
