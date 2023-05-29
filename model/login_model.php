@@ -5,13 +5,13 @@ function getLogin()
   $connection = new Conecction();
   $dbh = $connection->getConection();
 
-  if(isset($_POST['name'], $_POST['password']))
+  if(isset($_POST['username'], $_POST['password']))
   {
-    $name = $_POST['name'];
+    $name = $_POST['username'];
     $passwrd = $_POST['password'];
 
-    $stmt = $dbh->prepare("SELECT * FROM users WHERE user_name = :name");
-    $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+    $stmt = $dbh->prepare("SELECT * FROM users WHERE user_name = :username");
+    $stmt->bindParam(":username", $name, PDO::PARAM_STR);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $row = $stmt->rowCount();
@@ -24,35 +24,29 @@ function getLogin()
         if (password_verify($passwrd, $pass)){
            //comprobamos que la contraseña descifrada coincida
            session_start(); //Iniciamos sesion
-           $username = $user['user_name']; 
-           $userphone = $user['user_phone']; 
-           $userunit = $user['user_unit']; 
-           $userrole = $user['role'];
-           $_SESSION['user_name'] = $username; 
-           $_SESSION['user_unit'] = $userunit; 
-           $_SESSION['role'] = $userrole; 
-           $_SESSION['user_phone'] = $userphone;
+           $_SESSION['user_name'] = $user['user_name']; 
+           $_SESSION['user_unit'] = $user['user_unit']; 
+           $_SESSION['role'] = $user['role'];
+           $_SESSION['user_phone'] = $user['user_phone']; 
  
            setcookie('prometheus', '', 86400); //Establecemos una cokkie de 1 dia
-           header('location: ./view/view_gati.php'); //Enviamos a la página para usuarios registrados
+           header('location:indexGati.php'); //Enviamos a la página para usuarios registrados
+           exit();
 
         }
          
         }
 
-      }
 
     } else {
-      $sec = 3; //Segundos aparece mensaje de login no valido
-            echo '<script>';
-            echo 'alert("LOGIN FALLIDO");';
-            echo '</script>';
-      include('./view/error_header_view.php');
-      session_write_close(); //Borramos sesiones anteriores
-      header("Refresh: $sec; url=index.php"); 
+      $sec = 10; // Segundos aparece mensaje de login no válido
+      $_SESSION['login_error'] = "LOGIN FALLIDO"; // Almacena el mensaje de error en una variable de sesión
+      session_write_close(); // Borramos sesiones anteriores
+      header("Refresh: $sec; url=index.php");
     }
   }
-  /* TODO COMPROBAR CONDICIONALES
+}
+  /* TODO COMPROBAR CONDICIONALES */
 
 function addNewUser(){
   $conenection = new Conecction();

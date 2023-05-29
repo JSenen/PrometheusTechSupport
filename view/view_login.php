@@ -13,13 +13,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			addNewUser();
 	}
 }
+// Verifica si hay un mensaje de error almacenado en la variable de sesión
+if (isset($_SESSION['login_error'])) {
+  echo '<div class="alert alert-danger" role="alert">';
+  echo $_SESSION['login_error']; // Muestra el mensaje de error
+  echo '</div>';
+  unset($_SESSION['login_error']); // Limpia la variable de sesión después de mostrar el mensaje
+}
 ?>
 <section class="section-log">
 		<div class="container">
 		  <div class="user signinBx">
 			<div class="imgBx"><img src="./resources/img/computer.jpg" width="50" height="50" alt="" /></div>
 			<div class="formBx">
-			  <form action="login_controller.php" method="post">
+			  <form action="" method="post">
 				<h2>Login</h2>
 				<input type="hidden" name="action" value="login"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
 					<input type="text" name="username" placeholder="Usuario" />
@@ -53,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div class="imgBx bg-dark"><img src="./resources/img/parche-GATI3.png" width="50" height="50" alt="" /></div>
 		  </div>
 		</div>
-	  </section>
+</section>
 <?php
 include('footer.php');
 ?>
