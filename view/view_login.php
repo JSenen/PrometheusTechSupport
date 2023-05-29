@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('header.php');
 include_once('./model/login_model.php');
 
@@ -12,13 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Llama a la función que deseas ejecutar para el registro
 			addNewUser();
 	}
-}
-// Verifica si hay un mensaje de error almacenado en la variable de sesión
-if (isset($_SESSION['login_error'])) {
-  echo '<div class="alert alert-danger" role="alert">';
-  echo $_SESSION['login_error']; // Muestra el mensaje de error
-  echo '</div>';
-  unset($_SESSION['login_error']); // Limpia la variable de sesión después de mostrar el mensaje
 }
 ?>
 <section class="section-log">
@@ -36,7 +30,27 @@ if (isset($_SESSION['login_error'])) {
 							¿No dispone de cuenta?
 							<a href="#" onclick="toggleForm();">Crear registro.</a>
 						</p>
+						<?php
+						// Verifica si hay un mensaje de error almacenado en la variable de sesión
+						if (isset($_SESSION['login_error'])) {
+							echo '<div id="error-message" class="alert alert-danger" role="alert">';
+							echo $_SESSION['login_error']; // Muestra el mensaje de error
+							echo '</div>';
+							unset($_SESSION['login_error']); // Limpia la variable de sesión después de mostrar el mensaje
+						}
+						?>
+
+						<script>
+							// Espera 5 segundos y luego oculta el mensaje de error
+							setTimeout(function() {
+								var errorMessage = document.getElementById('error-message');
+								if (errorMessage) {
+									errorMessage.style.display = 'none';
+								}
+							}, 3000); 
+						</script>
 			  </form>
+				
 			</div>
 		  </div>
 			<div class="user signupBx">

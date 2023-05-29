@@ -1,4 +1,5 @@
 <?php
+
 include_once('./domain/User.php');
 function getLogin()
 {
@@ -39,10 +40,9 @@ function getLogin()
 
 
     } else {
-      $sec = 10; // Segundos aparece mensaje de login no válido
       $_SESSION['login_error'] = "LOGIN FALLIDO"; // Almacena el mensaje de error en una variable de sesión
       session_write_close(); // Borramos sesiones anteriores
-      header("Refresh: $sec; url=index.php");
+      header("Refresh: 0; url=index.php");
     }
   }
 }
