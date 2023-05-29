@@ -19,9 +19,13 @@ public function addNewUser($tip, $unit, $phone, $passwrd, $dbh){
             $stmt->bindParam(':user_unit', $unit, PDO::PARAM_STR);
             
             $stmt->execute();
-            $sec = 3; //Segundos aparece mensaje de login correcto
-      $message = "!REGISTRO CORRECTO¡";
-      header("Refresh: $sec; url=index.php"); //Despues de los segundos establecidos nos reinicia la página de Login  
+            
+            echo '<script>';
+            echo 'alert("Registro exitoso. ¡Bienvenido!");';
+            echo '</script>';
+
+            $sec = 5; //Segundos aparece mensaje de login correcto
+            header("Refresh: $sec; url=index.php"); //Despues de los segundos establecidos nos reinicia la página de Login  
 } catch (PDOException $e) {
     echo "ERROR: " . $e->getMessage();
 }
