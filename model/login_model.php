@@ -1,5 +1,5 @@
 <?php
-
+include_once('./domain/User.php');
 function getLogin()
 {
   $connection = new Conecction();
@@ -24,4 +24,28 @@ function getLogin()
       }
     }
   }
+}
+
+function addNewUser(){
+  $conenection = new Conecction();
+  $dbh = $conenection->getConection();
+
+  if(isset($_POST['addregister']))
+  {
+    // Obtenemos los datos del formulario
+    $user_tip = htmlspecialchars($_POST['tip']);
+    $user_phone = htmlspecialchars(($_POST['oficialPhone']));
+    $user_unit = htmlspecialchars(($_POST['unit']));
+    $user_pass = htmlspecialchars(($_POST['pass']));
+
+    //TODO Comprobar campos rellenados correctamente
+
+    $user = new User();
+    $user->addNewUser($user_tip, $user_unit, $user_phone, $user_pass, $dbh);
+    
+    
+    
+  }
+
+
 }
