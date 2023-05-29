@@ -11,10 +11,11 @@ function __construct()
 }
 public function addNewUser($tip, $unit, $phone, $passwrd, $dbh){
   try {
+    $passhash = password_hash($passwrd, PASSWORD_DEFAULT); //Ciframos contraseña
     $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit) VALUES (:user_name, :user_password, :user_phone, :user_unit )";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':user_name', $tip, PDO::PARAM_STR);
-            $stmt->bindParam(':user_password', $passwrd, PDO::PARAM_STR);
+            $stmt->bindParam(':user_password', $passhash, PDO::PARAM_STR);
             $stmt->bindParam(':user_phone', $phone, PDO::PARAM_STR);
             $stmt->bindParam(':user_unit', $unit, PDO::PARAM_STR);
             
