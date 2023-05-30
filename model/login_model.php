@@ -25,6 +25,7 @@ function getLogin()
         if (password_verify($passwrd, $pass)){
            //comprobamos que la contraseña descifrada coincida
            session_start(); //Iniciamos sesion
+           $_SESSION['user_id'] = $user['id'];
            $_SESSION['user_name'] = $user['user_name']; 
            $_SESSION['user_unit'] = $user['user_unit']; 
            $_SESSION['role'] = $user['role'];

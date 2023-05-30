@@ -6,7 +6,9 @@ function firstPage()
 
 }
 function recordTicket() {
-  
+  require('./view/view_gati.php');
+  require('./model/recordticket_model.php');
+  addTicket();
 }
 
 ?>

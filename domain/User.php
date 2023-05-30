@@ -6,6 +6,7 @@ class user
   public String $phone;
   public String $passwrd;
   public String $unit;
+  public int $id;
 function __construct()
 {
   

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php
   } ?>     
 </nav>
-<?php if($_SESSION['role']== 'user') {?>
+<?php if($_SESSION['role']=== 'user') {?>
   <form action="" method="post">
   <div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
     <div class="form-container" style="width: 600px;">        
@@ -70,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="IP">IP:</label>
             <input type="text" class="form-control" name="ip_computer" placeholder="Ingrese IP del equipo">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-        <input type="hidden" name="action" value="sendticket">
+        <input type="hidden" name="action" value="sendticket"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
+        <button type="submit" class="btn btn-primary btn-block" name="sendticket" value="sendticket">Enviar</button>
     </div>
 </div>
 </form>
