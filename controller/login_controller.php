@@ -1,10 +1,15 @@
 <?php
-require_once('./domain/Conecction.php');
+require_once('./domain/Conecction.php'); 
 function startPage()
-{
-  $connection = new Conecction();
-  $connection->getConection();
-  require('./view/view_login.php');
+{ 
 
+  require('./view/view_login.php');
+  getLogin();
+
+}
+
+function registerUser()
+{ 
+  addNewUser();
 }
 ?>
