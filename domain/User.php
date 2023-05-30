@@ -5,6 +5,7 @@ class user
   public String $tip;
   public String $phone;
   public String $passwrd;
+  public String $unit;
 function __construct()
 {
   

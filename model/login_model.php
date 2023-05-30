@@ -43,7 +43,7 @@ function getLogin()
     } else {
       $_SESSION['login_error'] = "LOGIN FALLIDO"; // Almacena el mensaje de error en una variable de sesión
       session_write_close(); // Borramos sesiones anteriores
-      header("Refresh: 0; url=index.php");
+      header("Refresh: 10; url=index.php");
     }
   }
 }

@@ -5,5 +5,8 @@ function firstPage()
   require('./view/view_gati.php');
 
 }
+function recordTicket() {
+  
+}
 
 ?>
