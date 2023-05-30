@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <section class="section-log">
 		<div class="container">
 		  <div class="user signinBx">
-			<div class="imgBx"><img src="./resources/img/computer.jpg" width="50" height="50" alt="" /></div>
+			<div class="imgBx"><img src="./resources/img/parche-GATI-login.png" width="50" height="50" alt="" /></div>
 			<div class="formBx">
 			  <form action="" method="post">
 				<h2>Login</h2>
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div class="user signupBx">
 			<div class="formBx">
 			  <form action="" method="post">
-				<h2>Create an account</h2>
+				<h2>Crear cuenta</h2>
 				<input type="hidden" name="action" value="register"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
 				<input type="text" name="tip" placeholder="TIP" />
 			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" />
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			  </form>
 			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
-			<div class="imgBx bg-dark"><img src="./resources/img/parche-GATI3.png" width="50" height="50" alt="" /></div>
+			<div class="imgBx bg-black img-fluid"><img src="./resources/img/parche-GATI-login.png" class="img-fluid "width="50" height="50" alt="" /></div>
 		  </div>
 		</div>
 </section>
