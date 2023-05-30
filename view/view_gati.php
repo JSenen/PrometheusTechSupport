@@ -37,17 +37,16 @@ session_start();
   } ?>     
 </nav>
 <?php if($_SESSION['role']== 'user') {?>
-<div class="container">
-    <div class="form-container">
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+  <div class="container d-flex justify-content-center align-items-center" style="height: 75vh;">
+    <div class="form-container" style="width: 600px;">
+        <div class="form-group text-center">
+            <img class="mb-4" src="./resources/img/ticket.jpeg" alt="" width="200" height="200">
+            <h4>Bienvenido , <?php echo $_SESSION['user_name'];?></h4>
+            <h3 class="mb-3">ALTA TICKET DE SOPORTE</h3>
+            <label for="nombre">Descripcion:</label>
+            <textarea class="form-control" id="description" placeholder="Detalle la incidencia" rows="6"></textarea>
         </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Ingrese su email">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
     </div>
 </div>
 <?php }?>
