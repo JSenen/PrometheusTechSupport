@@ -1,11 +1,13 @@
 <?php
 include('header.php');
+session_start();
 ?>
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
   <ul class="navbar-nav">
   <img src="./resources/img/parche-GAT2.png"  alt="" class="footer-img">
-      <li class="nav-item dropdown active">
+  <?php if($_SESSION['role'] == 'admin') { ?>
+    <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Incidencias
           <span class="sr-only">(current)</span></a>
@@ -31,7 +33,25 @@ include('header.php');
         <a class="nav-link" href="#">Usuarios</a>
       </li>    
     </ul>
+  <?php
+  } ?>     
 </nav>
+<?php if($_SESSION['role']== 'user') {?>
+<div class="container">
+    <div class="form-container">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Ingrese su email">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</div>
+<?php }?>
+
 <?php
 include('footer.php');
 ?>

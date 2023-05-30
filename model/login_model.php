@@ -29,7 +29,8 @@ function getLogin()
            $_SESSION['user_unit'] = $user['user_unit']; 
            $_SESSION['role'] = $user['role'];
            $_SESSION['user_phone'] = $user['user_phone']; 
- 
+          
+           session_start();
            setcookie('prometheus', '', 86400); //Establecemos una cokkie de 1 dia
            header('location:indexGati.php'); //Enviamos a la página para usuarios registrados
            exit();
