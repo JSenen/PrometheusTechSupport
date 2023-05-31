@@ -10,10 +10,10 @@ function addTicket()
     $dbh = $connection->getConection();
 
     // Obtenemos los datos del formulario
-    $theme = htmlspecialchars($_POST['theme_computer']);
-    $description = htmlspecialchars($_POST['description']);
-    $label = htmlspecialchars($_POST['label_computer']);
-    $ipcomputer = htmlspecialchars($_POST['ip_computer']);
+    $theme = htmlspecialchars($_POST['theme_computer']) ? htmlspecialchars($_POST['theme_computer']) : '---';
+    $description = htmlspecialchars($_POST['description']) ? htmlspecialchars($_POST['description']) : '---';
+    $label = htmlspecialchars($_POST['label_computer']) ? htmlspecialchars($_POST['label_computer']) : '---';
+    $ipcomputer = htmlspecialchars($_POST['ip_computer']) ? htmlspecialchars($_POST['ip_computer']) : '---';
     $date_start = date('Y-m-d');
     $userid = $_SESSION['user_id'];
     $userphone = $_SESSION['user_phone'];

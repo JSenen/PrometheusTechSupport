@@ -10,14 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	} 
 }
 ?>
-
+<style>
+  .nav-tip {
+    color: #F7D060; /* Cambia esto por el color que desees */
+}
+</style>
 <nav class="navbar-dark bg-dark navbar-vertical show">
   <ul class="navbar-nav">
   <img src="./resources/img/parche-GAT2.png"  alt="" class="footer-img">
     <li class="nav-item">
-        <a class="nav-link active" href="index.php">Inicio</a>
+        <a class="nav-tip" href="index.php"><?php echo $_SESSION['user_name'] ?></a>
       </li>
-    <?php if($_SESSION['role'] == 'admin') { ?>
+    <?php if($_SESSION['role'] === 'admin') { ?> 
     <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Tickets Soporte
@@ -66,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Usuarios</a>
-      </li>    
+      </li> 
     </ul>
   <?php
   } ?>     

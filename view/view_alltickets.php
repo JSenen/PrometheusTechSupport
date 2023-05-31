@@ -88,7 +88,7 @@ require_once('./domain/User.php');
           <th style="width: 16.66%">Unidad</th>
           <th style="width: 10.66%">Telefono</th>
           <th styke="width: 8,66%">Estado</th>
-          <th style="width: 16.66%">GATI</th>
+          <th style="width: 10.66%">GATI Resuelve</th>
         </tr>
       </thead>
       <tbody>
@@ -105,7 +105,7 @@ require_once('./domain/User.php');
               echo '<td>' . $user['user_phone'] . '</td>';              
             }
           ?>
-          <td><a href="#" class="btn btn-danger">Resuelto</a></td>
+          <td><a href="#" class="btn btn-danger">Resolver</a></td>
 
         </tr>
       </tbody>
