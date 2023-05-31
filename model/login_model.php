@@ -1,6 +1,6 @@
 <?php
 
-include_once('./domain/User.php');
+require_once('./domain/User.php');
 function getLogin()
 {
   $connection = new Conecction();

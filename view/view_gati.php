@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if($_SESSION['role'] == 'admin') { ?>
     <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Incidencias
+          Tickets Soporte
           <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Todas</a>
+          <a class="dropdown-item" href="#">Todos</a>
           <a class="dropdown-item" href="#">Abiertas</a>
           <a class="dropdown-item" href="#">Cerradas</a>
           <!-- divisor
@@ -31,8 +31,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <a class="dropdown-item" href="#">Cerradas</a> -->
         </div> 
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Equipos</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Equipos
+          <span class="sr-only">(current)</span></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Altas</a>
+          <a class="dropdown-item" href="#">Asociar</a>
+          <a class="dropdown-item" href="#">Pretamos</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">SSD</a>
+          <a class="dropdown-item" href="#">RAM</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Traslados</a>
+          <a class="dropdown-item" href="#">Renovaciones</a> 
+        </div> 
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Consultas
+          <span class="sr-only">(current)</span></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Equipos</a>
+          <a class="dropdown-item" href="#">Unidades</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Guia telefonos</a>
+        </div> 
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Telefonia</a>
