@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include_once('./model/listticket_model.php');
 ?>
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
@@ -59,6 +60,30 @@ include('header.php');
   <?php
   } ?>     
 </nav>
+
+<!-- LISTADO DE TICKETS -->
+
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fecha </th>
+          <th>Asunto</th>
+          <th>Descripción</th>
+          <th>Usuario</th>
+          <th>Unidad</th>
+          <th>Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><?php echo $ticket['date_start']; ?></td>
+          <td><?php echo $ticket['theme']; ?></td>
+          <td><?php echo $ticket['description']; ?></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 <?php
 include('footer.php');
 ?>
