@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           Tickets Soporte
           <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Todos</a>
+          <a class="dropdown-item" href="indexTickets.php">Todos</a>
           <a class="dropdown-item" href="#">Abiertas</a>
           <a class="dropdown-item" href="#">Cerradas</a>
           <!-- divisor
@@ -93,6 +93,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="form-group">
             <label for="IP">IP:</label>
             <input type="text" class="form-control" name="ip_computer" placeholder="Ingrese IP del equipo">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Capturas pantalla</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" name="pdfContent">
         </div>
         <input type="hidden" name="action" value="sendticket"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
         <button type="submit" class="btn btn-primary btn-block" name="sendticket" value="sendticket">Enviar</button>
