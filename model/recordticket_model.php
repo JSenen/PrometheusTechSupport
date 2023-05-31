@@ -15,7 +15,7 @@ function addTicket()
     $label = htmlspecialchars($_POST['label_computer']);
     $ipcomputer = htmlspecialchars($_POST['ip_computer']);
     $date_start = date('Y-m-d');
-    $userid = $_SESSION['id'];
+    $userid = $_SESSION['user_id'];
     $userphone = $_SESSION['user_phone'];
     //TODO Terminar conexion y grabar a base en el domain    
     

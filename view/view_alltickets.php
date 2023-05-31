@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 include_once('./model/listticket_model.php');
+require_once('./domain/User.php');
 ?>
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
@@ -63,16 +64,31 @@ include_once('./model/listticket_model.php');
 
 <!-- LISTADO DE TICKETS -->
 
+<style>
+  .table-striped-custom tbody tr:nth-of-type(odd) {
+    background-color: #DAEAF1; /* Color de fondo para filas impares */
+  }
+  
+  .table-striped-custom tbody tr:nth-of-type(even) {
+    background-color: #ffffff; /* Color de fondo para filas pares */
+  }
+  .table-fixed {
+    table-layout: fixed;
+  }
+</style>
+
 <div class="container">
-    <table class="table">
+    <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
-          <th>Fecha </th>
-          <th>Asunto</th>
-          <th>Descripción</th>
-          <th>Usuario</th>
-          <th>Unidad</th>
-          <th>Telefono</th>
+          <th style="width: 10.66%" >Fecha </th>
+          <th style="width: 16.66%">Asunto</th>
+          <th style="width: 16.66%">Descripción</th>
+          <th style="width: 10.66%">Usuario</th>
+          <th style="width: 16.66%">Unidad</th>
+          <th style="width: 10.66%">Telefono</th>
+          <th styke="width: 8,66%">Estado</th>
+          <th style="width: 16.66%">GATI</th>
         </tr>
       </thead>
       <tbody>
@@ -80,6 +96,17 @@ include_once('./model/listticket_model.php');
           <td><?php echo $ticket['date_start']; ?></td>
           <td><?php echo $ticket['theme']; ?></td>
           <td><?php echo $ticket['description']; ?></td>
+          <?php
+            $user = new User();
+            $userData = $user->getUserofTicket($ticket['user_id']);
+            foreach ($userData as $user) {
+              echo '<td>' . $user['user_name'] . '</td>';
+              echo '<td>' . $user['user_unit'] . '</td>';
+              echo '<td>' . $user['user_phone'] . '</td>';              
+            }
+          ?>
+          <td><a href="#" class="btn btn-danger">Resuelto</a></td>
+
         </tr>
       </tbody>
     </table>

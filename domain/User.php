@@ -11,6 +11,14 @@ function __construct()
 {
   
 }
+function getAllUserData(){
+  $userData = array (
+  'user_tip' => $this->tip,
+  'user_phone' => $this->phone,
+  'user_unit' => $this->unit
+  );
+  return $userData;
+}
 public function addNewUser($tip, $unit, $phone, $passwrd, $dbh){
   try {
     $passhash = password_hash($passwrd, PASSWORD_DEFAULT); //Ciframos contraseña
@@ -33,6 +41,22 @@ public function addNewUser($tip, $unit, $phone, $passwrd, $dbh){
     echo "ERROR: " . $e->getMessage();
 }
 
+}
+
+public function getUserofTicket($user_id){
+  $userdata = array(); // Inicializar la variable $userdata como un array vacío
+  try{
+    $connection = new Conecction();
+    $dbh = $connection->getConection();
+    $stmt = $dbh->prepare("SELECT user_name, user_phone, user_unit FROM users WHERE id = :user_id");
+    $stmt->bindParam(':user_id',$user_id,PDO::PARAM_INT);
+    $stmt->execute();
+    $userdata = $stmt->fetchAll();
+
+  }catch (PDOException $exc){
+    echo "ERROR" . $exc->getMessage();
+  }
+  return $userdata;
 }
 }
 ?>
