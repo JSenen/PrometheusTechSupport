@@ -2,6 +2,7 @@
 include('header.php');
 include_once('./model/listticket_model.php');
 require_once('./domain/User.php');
+require_once('./domain/Ticket.php');
 ?>
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
@@ -107,10 +108,10 @@ require_once('./domain/User.php');
               echo '<td>' . $user['user_phone'] . '</td>';              
             }
           if($ticket['priority'] == 'active'){?>
-            <td><a href="#" id="resolver-link" class="btn btn-danger">Resolver</a></td>
+            <td><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>"  class="btn btn-danger">Resolver</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
-            <td><a href="#" id="resuelto-link" class="btn btn-warning">En Proceso</a></td>
+            <td><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>"class="btn btn-warning">En Proceso</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixed') { ?>
             <td><a href="#" class="btn btn-success">Solucionado</a></td>
@@ -122,7 +123,6 @@ require_once('./domain/User.php');
       </tbody>
     </table>
   </div>
-  <script src="./resources/js/linkaction.js"></script>
 <?php
 include('footer.php');
 ?>

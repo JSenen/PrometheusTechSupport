@@ -10,3 +10,10 @@ function ticketsList(){
   listTickets($tickets);
 
 }
+
+function updateTicket($id,$action){
+  include('./model/linkaction_model.php');
+  changePriotityTicket($id,$action);
+  // Recargar la página utilizando JavaScript
+  header('Location: indexTickets.php');
+}
