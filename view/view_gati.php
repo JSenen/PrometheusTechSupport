@@ -69,6 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a class="nav-link" href="#">Sirdee</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#">Estadisticas</a>
+      </li> 
+      <li class="nav-item">
         <a class="nav-link" href="#">Usuarios</a>
       </li> 
     </ul>

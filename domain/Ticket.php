@@ -53,6 +53,21 @@ public function getTickets($dbh){
 
 }
 
+public function update($dbh, $priority, $id){
+  try {
+
+    $sql = "UPDATE ticket SET priority = :priority WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                     
+            $stmt->execute();
+          
+} catch (PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+}
+}
+
 
 }
 ?>

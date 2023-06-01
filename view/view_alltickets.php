@@ -78,17 +78,19 @@ require_once('./domain/User.php');
 </style>
 
 <div class="container">
+  <?php $_SESSION['ticket_id'] = $ticket['id']; ?>
     <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
           <th style="width: 10.66%" >Fecha </th>
-          <th style="width: 16.66%">Asunto</th>
-          <th style="width: 16.66%">Descripción</th>
+          <th style="width: 13.66%">Asunto</th>
+          <th style="width: 13.66%">Descripción</th>
           <th style="width: 10.66%">Usuario</th>
-          <th style="width: 16.66%">Unidad</th>
+          <th style="width: 13.66%">Unidad</th>
           <th style="width: 10.66%">Telefono</th>
-          <th styke="width: 8,66%">Estado</th>
-          <th style="width: 10.66%">GATI Resuelve</th>
+          <th styke="width: 8.66%">Estado</th>
+          <th style="width: 8.66%">GATI Resuelve</th>
+          <th style="width: 10.66%">Fecha Fin</th>
         </tr>
       </thead>
       <tbody>
@@ -104,13 +106,23 @@ require_once('./domain/User.php');
               echo '<td>' . $user['user_unit'] . '</td>';
               echo '<td>' . $user['user_phone'] . '</td>';              
             }
+          if($ticket['priority'] == 'active'){?>
+            <td><a href="#" id="resolver-link" class="btn btn-danger">Resolver</a></td>
+          <?php
+          }elseif($ticket['priority'] == 'fixing') { ?>
+            <td><a href="#" id="resuelto-link" class="btn btn-warning">En Proceso</a></td>
+          <?php
+          }elseif($ticket['priority'] == 'fixed') { ?>
+            <td><a href="#" class="btn btn-success">Solucionado</a></td>
+          <?php
+          }        
           ?>
-          <td><a href="#" class="btn btn-danger">Resolver</a></td>
 
         </tr>
       </tbody>
     </table>
   </div>
+  <script src="./resources/js/linkaction.js"></script>
 <?php
 include('footer.php');
 ?>
