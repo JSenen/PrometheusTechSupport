@@ -3,6 +3,7 @@ include('header.php');
 include_once('./model/listticket_model.php');
 require_once('./domain/User.php');
 require_once('./domain/Ticket.php');
+$dateToday = date('Y-m-d');
 ?>
 
 <nav class="navbar-dark bg-dark navbar-vertical show">
@@ -83,43 +84,46 @@ require_once('./domain/Ticket.php');
     <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
-          <th style="width: 10.66%" >Fecha </th>
-          <th style="width: 13.66%">Asunto</th>
-          <th style="width: 13.66%">Descripción</th>
-          <th style="width: 10.66%">Usuario</th>
+          <th style="width: 7.5%" >Fecha </th>
+          <th style="width: 14%">Asunto</th>
+          <th style="width: 18.66%">Descripción</th>
+          <th style="width: 6.66%">Usuario</th>
           <th style="width: 13.66%">Unidad</th>
-          <th style="width: 10.66%">Telefono</th>
-          <th styke="width: 8.66%">Estado</th>
-          <th style="width: 8.66%">GATI Resuelve</th>
+          <th style="width: 6.66%">Telefono</th>
+          <th styke="width: 16.66%">Estado</th>
+          <th style="width: 12.66%">GATI Resuelve</th>
           <th style="width: 10.66%">Fecha Fin</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><?php echo $ticket['date_start']; ?></td>
-          <td><?php echo $ticket['theme']; ?></td>
-          <td><?php echo $ticket['description']; ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['date_start']; ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['description']; ?></td>
           <?php
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
             foreach ($userData as $user) {
-              echo '<td>' . $user['user_name'] . '</td>';
-              echo '<td>' . $user['user_unit'] . '</td>';
-              echo '<td>' . $user['user_phone'] . '</td>';              
+              echo '<td style="font-size: 14px">' . $user['user_name'] . '</td>';
+              echo '<td style="font-size: 14px">' . $user['user_unit'] . '</td>';
+              echo '<td style="font-size: 14px">' . $user['user_phone'] . '</td>';              
             }
           if($ticket['priority'] == 'active'){?>
-            <td><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>"  class="btn btn-danger">Resolver</a></td>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>"  class="btn btn-danger">Resolver</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
-            <td><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>"class="btn btn-warning">En Proceso</a></td>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>"class="btn btn-warning">En Proceso</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixed') { ?>
-            <td><a href="#" class="btn btn-success">Solucionado</a></td>
+            <td style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>
           <?php
           }  
           if($ticket['priority'] == 'fixing') { 
-            echo '<td>' . $_SESSION['user_name'] . '</td>';        
-          }      
+            echo '<td style="font-size: 14px">' . $_SESSION['user_name'] . '</td>';        
+          }elseif ($ticket['priority'] == 'fixed') {
+            echo '<td style="font-size: 14px">'. $_SESSION['user_name'].'</td>';
+            echo '<td style="font-size: 14px">'. $dateToday.'</td>';            
+          }    
           ?>
 
         </tr>
