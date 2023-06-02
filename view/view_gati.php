@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="indexTickets.php">Todos</a>
-          <a class="dropdown-item" href="#">Abiertas</a>
+          <a class="dropdown-item" href="#">Pendientes</a>
+          <a class="dropdown-item" href="#">En proceso</a>
           <a class="dropdown-item" href="#">Cerradas</a>
           <!-- divisor
           <div class="dropdown-divider"></div>

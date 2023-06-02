@@ -5,22 +5,35 @@ require_once('./domain/User.php');
 require_once('./domain/Ticket.php');
 $dateToday = date('Y-m-d');
 ?>
-
+<style>
+  .nav-tip {
+    color: #F7D060; /* Cambia esto por el color que desees */
+}
+</style>
+<script>
+  $(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+  });
+</script>
 <nav class="navbar-dark bg-dark navbar-vertical show">
   <ul class="navbar-nav">
   <img src="./resources/img/parche-GAT2.png"  alt="" class="footer-img">
     <li class="nav-item">
-        <a class="nav-link" href="index.php">Inicio</a>
+        <a class="nav-tip" href="index.php"><?php echo $_SESSION['user_name'] ?></a>
       </li>
-    <?php if($_SESSION['role'] == 'admin') { ?>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+    <?php if($_SESSION['role'] === 'admin') { ?> 
+    <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Tickets Soporte
           <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Todos</a>
-          <a class="dropdown-item" href="#">Abiertas</a>
+        <a class="dropdown-item" href="indexTickets.php">Todos</a>
+          <a class="dropdown-item" href="#">Pendientes</a>
+          <a class="dropdown-item" href="#">En proceso</a>
           <a class="dropdown-item" href="#">Cerradas</a>
+          <!-- divisor
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Cerradas</a> -->
         </div> 
       </li>
       <li class="nav-item dropdown">
@@ -57,8 +70,11 @@ $dateToday = date('Y-m-d');
         <a class="nav-link" href="#">Sirdee</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#">Estadisticas</a>
+      </li> 
+      <li class="nav-item">
         <a class="nav-link" href="#">Usuarios</a>
-      </li>    
+      </li> 
     </ul>
   <?php
   } ?>     
