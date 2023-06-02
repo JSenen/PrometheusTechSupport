@@ -116,7 +116,10 @@ require_once('./domain/Ticket.php');
           }elseif($ticket['priority'] == 'fixed') { ?>
             <td><a href="#" class="btn btn-success">Solucionado</a></td>
           <?php
-          }        
+          }  
+          if($ticket['priority'] == 'fixing') { 
+            echo '<td>' . $_SESSION['user_name'] . '</td>';        
+          }      
           ?>
 
         </tr>
