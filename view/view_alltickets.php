@@ -75,6 +75,9 @@ $dateToday = date('Y-m-d');
       <li class="nav-item">
         <a class="nav-link" href="#">Usuarios</a>
       </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Guia Telefonos</a>
+      </li> 
     </ul>
   <?php
   } ?>     
