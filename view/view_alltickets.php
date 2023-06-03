@@ -100,15 +100,15 @@ $dateToday = date('Y-m-d');
     <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
-          <th style="width: 7.5%" >Fecha </th>
-          <th style="width: 14%">Asunto</th>
-          <th style="width: 18.66%">Descripción</th>
-          <th style="width: 6.66%">Usuario</th>
-          <th style="width: 13.66%">Unidad</th>
-          <th style="width: 6.66%">Telefono</th>
-          <th styke="width: 19.66%">Estado</th>
-          <th style="width: 12.66%">Resuelve</th>
-          <th style="width: 10.66%">Fecha Fin</th>
+        <th style="width: 9%">Fecha</th>
+        <th style="width: 18%">Asunto</th>
+        <th style="width: 20%">Descripción</th>
+        <th style="width: 7%">Usuario</th>
+        <th style="width: 13%">Unidad</th>
+        <th style="width: 7%">Teléfono</th>
+        <th style="width: 10%">Estado</th>
+        <th style="width: 8%">Resuelve</th>
+        <th style="width: 11%">Fecha Fin</th>
         </tr>
       </thead>
       <tbody>
@@ -126,7 +126,9 @@ $dateToday = date('Y-m-d');
             }
           $gatiId = $_SESSION['user_name'];
           if($ticket['priority'] == 'active'){?>
-            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a></td>
+            <td style="font-size: 14px">
+              <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
+            </td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
             <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
