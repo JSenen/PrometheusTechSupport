@@ -2,7 +2,7 @@
 require_once('./domain/Conecction.php');
 require_once('./domain/Ticket.php');
 
-function changePriotityTicket($id, $accion){
+function changePriotityTicket($id, $accion, $gatiId){
   $connection = new Conecction();
   $dbh = $connection->getConection();
   
@@ -10,11 +10,11 @@ function changePriotityTicket($id, $accion){
   
   // Ejecutar la acción deseada
   if ($accion == 'resolver') {
-    $ticket->update($dbh,'fixing', $id);
+    $ticket->update($dbh,'fixing', $id, $gatiId);
     header('indexTickets.php');
   }
   if ($accion == 'resuelto') {
-    $ticket->update($dbh,'fixed', $id);
+    $ticket->update($dbh,'fixed', $id, $gatiId);
     header('indexTickets.php');
   }
   

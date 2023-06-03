@@ -1,6 +1,7 @@
 <?php
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$gatiId = $_GET['gatiId'];
 $accion = $_GET['state'];
 
 define('CONTROLLER_FOLDER', "controller/"); //Directorio donde definimos los controladores
@@ -27,7 +28,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if (is_callable($action))
-  $action($id,$accion);
+  $action($id,$accion,$gatiId);
 else
   die("La accion requerida no existe 404 not found");
 ?>

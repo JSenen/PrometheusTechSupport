@@ -53,12 +53,13 @@ public function getTickets($dbh){
 
 }
 
-public function update($dbh, $priority, $id){
+public function update($dbh, $priority, $id, $gatiId){
   try {
 
-    $sql = "UPDATE ticket SET priority = :priority WHERE id = :id";
+    $sql = "UPDATE ticket SET priority = :priority, technician_id = :gatiId WHERE id = :id";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
+            $stmt->bindParam(':gatiId', $gatiId, PDO::PARAM_STR);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                      
             $stmt->execute();

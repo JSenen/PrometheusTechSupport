@@ -11,9 +11,9 @@ function ticketsList(){
 
 }
 
-function updateTicket($id,$action){
+function updateTicket($id,$action,$gatiId){
   include('./model/linkaction_model.php');
-  changePriotityTicket($id,$action);
+  changePriotityTicket($id,$action,$gatiId);
   // Recargar la página utilizando JavaScript
   header('Location: indexTickets.php');
 }

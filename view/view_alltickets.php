@@ -106,8 +106,8 @@ $dateToday = date('Y-m-d');
           <th style="width: 6.66%">Usuario</th>
           <th style="width: 13.66%">Unidad</th>
           <th style="width: 6.66%">Telefono</th>
-          <th styke="width: 16.66%">Estado</th>
-          <th style="width: 12.66%">GATI Resuelve</th>
+          <th styke="width: 19.66%">Estado</th>
+          <th style="width: 12.66%">Resuelve</th>
           <th style="width: 10.66%">Fecha Fin</th>
         </tr>
       </thead>
@@ -122,22 +122,23 @@ $dateToday = date('Y-m-d');
             foreach ($userData as $user) {
               echo '<td style="font-size: 14px">' . $user['user_name'] . '</td>';
               echo '<td style="font-size: 14px">' . $user['user_unit'] . '</td>';
-              echo '<td style="font-size: 14px">' . $user['user_phone'] . '</td>';              
+              echo '<td style="font-size: 14px">' . $user['user_phone'] . '</td>';          
             }
+          $gatiId = $_SESSION['user_name'];
           if($ticket['priority'] == 'active'){?>
-            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>"  class="btn btn-danger">Resolver</a></td>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
-            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>"class="btn btn-warning">En Proceso</a></td>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixed') { ?>
             <td style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>
           <?php
           }  
           if($ticket['priority'] == 'fixing') { 
-            echo '<td style="font-size: 14px">' . $_SESSION['user_name'] . '</td>';        
+            echo '<td style="font-size: 14px">' . $ticket['technician_id'] . '</td>';        
           }elseif ($ticket['priority'] == 'fixed') {
-            echo '<td style="font-size: 14px">'. $_SESSION['user_name'].'</td>';
+            echo '<td style="font-size: 14px">'. $ticket['technician_id'].'</td>';
             echo '<td style="font-size: 14px">'. $dateToday.'</td>';            
           }    
           ?>
