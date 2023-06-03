@@ -35,46 +35,10 @@ $dateToday = date('Y-m-d');
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Cerradas</a> -->
         </div> 
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Equipos
-          <span class="sr-only">(current)</span></a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Altas</a>
-          <a class="dropdown-item" href="#">Asociar</a>
-          <a class="dropdown-item" href="#">Pretamos</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">SSD</a>
-          <a class="dropdown-item" href="#">RAM</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Traslados</a>
-          <a class="dropdown-item" href="#">Renovaciones</a> 
-        </div> 
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Consultas
-          <span class="sr-only">(current)</span></a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Equipos</a>
-          <a class="dropdown-item" href="#">Unidades</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Guia telefonos</a>
-        </div> 
-      </li>
+        </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Telefonia</a>
+        <a class="nav-link" href="#">Guía Telefonos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sirdee</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Estadisticas</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Usuarios</a>
-      </li> 
     </ul>
   <?php
   } ?>     
@@ -100,7 +64,7 @@ $dateToday = date('Y-m-d');
     <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
-        <th style="width: 9%">Fecha</th>
+        <th style="width: 9%" >Fecha</th>
         <th style="width: 18%">Asunto</th>
         <th style="width: 20%">Descripción</th>
         <th style="width: 7%">Usuario</th>

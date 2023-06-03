@@ -8,7 +8,7 @@ function getLogin()
 
   if(isset($_POST['username'], $_POST['password']))
   {
-    $name = $_POST['username'];
+    $name = strtoupper($_POST['username']);
     $passwrd = $_POST['password'];
 
     $stmt = $dbh->prepare("SELECT * FROM users WHERE user_name = :username");
@@ -57,9 +57,9 @@ function addNewUser(){
   if(isset($_POST['addregister']))
   {
     // Obtenemos los datos del formulario
-    $user_tip = htmlspecialchars($_POST['tip']);
+    $user_tip = strtoupper(htmlspecialchars($_POST['tip']));
     $user_phone = htmlspecialchars(($_POST['oficialPhone']));
-    $user_unit = htmlspecialchars(($_POST['unit']));
+    $user_unit = strtoupper(htmlspecialchars(($_POST['unit'])));
     $user_pass = htmlspecialchars(($_POST['pass']));
 
     //TODO Comprobar campos rellenados correctamente y HASH password
