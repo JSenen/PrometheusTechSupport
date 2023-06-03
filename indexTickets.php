@@ -1,5 +1,7 @@
 <?php
 session_start();
+$state = $_GET['state'] ?? "all";
+
 define('CONTROLLER_FOLDER', "controller/"); //Directorio donde definimos los controladores
 define('DEFAULT_CONTROLLER', "tickets"); //Controlador por defecto
 define('DEFAULT_ACTION', "ticketsList"); //Accion por defecto
@@ -24,7 +26,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if (is_callable($action))
-  $action();
+  $action($state);
 else
   die("La accion requerida no existe 404 not found");
 ?>

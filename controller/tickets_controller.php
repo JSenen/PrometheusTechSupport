@@ -1,11 +1,11 @@
 <?php
 include_once('./domain/Ticket.php');
 include_once('./domain/Conecction.php');
-function ticketsList(){
+function ticketsList($state){
   $connection = new Conecction();
   $dbh = $connection->getConection();
   $ticket = new Ticket();
-  $tickets = $ticket->getTickets($dbh);
+  $tickets = $ticket->getTickets($dbh,$state);
   include('./model/listticket_model.php');
   listTickets($tickets);
 

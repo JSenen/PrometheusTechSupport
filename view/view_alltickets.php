@@ -27,10 +27,10 @@ $dateToday = date('Y-m-d');
           Tickets Soporte
           <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
-        <a class="dropdown-item" href="indexTickets.php">Todos</a>
-          <a class="dropdown-item" href="#">Pendientes</a>
-          <a class="dropdown-item" href="#">En proceso</a>
-          <a class="dropdown-item" href="#">Cerradas</a>
+        <a class="dropdown-item" href="indexTickets.php?state=all">Todos</a>
+          <a class="dropdown-item" href="indexTickets.php?state=active">Pendientes</a>
+          <a class="dropdown-item" href="indexTickets.php?state=fixing">En proceso</a>
+          <a class="dropdown-item" href="indexTickets.php?state=fixed">Cerradas</a>
           <!-- divisor
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Cerradas</a> -->

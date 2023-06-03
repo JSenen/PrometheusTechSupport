@@ -36,22 +36,31 @@ function recordTicket($dbh, $theme, $description, $label, $ipcomputer, $userphon
   }
 }
 
-public function getTickets($dbh){
-  try{
-  
-    $stmt = $dbh->prepare("SELECT * FROM ticket");
-    $stmt->execute();
-    $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if (!$tickets) {                                     // Si no existe 
-      header('indexGati.php'); 
+public function getTickets($dbh, $state) {
+  try {
+    $sql = "SELECT * FROM ticket";
+    $params = array();
+
+    if ($state !== "all") {
+      $sql .= " WHERE priority = :state";
+      $params[':state'] = $state;
     }
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($params);
+    $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (!$tickets) {
+      header('Location: indexTickets.php');
+      exit();
+    }
+    
     return $tickets;
   } catch (PDOException $e) {
     echo "ERROR: " . $e->getMessage();
-  
+  }
 }
 
-}
 
 public function update($dbh, $priority, $id, $gatiId){
   try {
