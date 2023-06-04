@@ -94,6 +94,8 @@ $dateToday = date('Y-m-d');
             <td style="font-size: 14px">
               <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
             </td>
+            <td>---</td>
+            <td>---</td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
             <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
