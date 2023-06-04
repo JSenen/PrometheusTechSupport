@@ -73,6 +73,7 @@ $dateToday = date('Y-m-d');
         <th style="width: 10%">Estado</th>
         <th style="width: 8%">Resuelve</th>
         <th style="width: 11%">Fecha Fin</th>
+        
         </tr>
       </thead>
       <tbody>
