@@ -38,11 +38,11 @@ function recordTicket($dbh, $theme, $description, $label, $ipcomputer, $userphon
 
 public function getTickets($dbh, $state) {
   try {
-    $sql = "SELECT * FROM ticket";
+    $sql = "SELECT * FROM ticket ORDER BY date_start DESC";
     $params = array();
 
     if ($state !== "all") {
-      $sql .= " WHERE priority = :state";
+      $sql = "SELECT * FROM ticket WHERE priority = :state ORDER BY date_start DESC";
       $params[':state'] = $state;
     }
 
