@@ -17,9 +17,7 @@ function addTicket()
     $date_start = date('Y-m-d');
     $userid = $_SESSION['user_id'];
     $userphone = $_SESSION['user_phone'];
-
-    //TODO Terminar conexion y grabar a base en el domain    
-    
+      
     //Creamos un objeto ticket
       $ticket = new Ticket();
       try {

@@ -24,7 +24,7 @@ include('./view/view_alltickets.php');
 <?php
         foreach ($tickets as $ticket) {
           $_SESSION['ticket_id'] = $ticket['id']; 
-          include('./view/listTickets.php');
+          include('./view/view_ticketsContainer.php');
         }
 ?>
 </table>
