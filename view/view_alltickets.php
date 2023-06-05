@@ -25,7 +25,6 @@ $dateToday = date('Y-m-d');
     <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Tickets Soporte
-          <span class="sr-only">(current)</span></a>
         <div class="dropdown-menu">
         <a class="dropdown-item" href="indexTickets.php?state=all">Todos</a>
           <a class="dropdown-item" href="indexTickets.php?state=active">Pendientes</a>
