@@ -1,10 +1,11 @@
 <?php
-
+include_once('./domain/Ticket.php');
 function listTickets($tickets){
   
 include('./view/view_alltickets.php');
 ?>
 <div class="container">
+
     <table class="table table-striped-custom table-fixed">
       <thead>
         <tr>
@@ -22,6 +23,7 @@ include('./view/view_alltickets.php');
       </thead> 
 <?php
         foreach ($tickets as $ticket) {
+          $_SESSION['ticket_id'] = $ticket['id']; 
           include('./view/listTickets.php');
         }
 ?>

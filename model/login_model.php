@@ -33,7 +33,12 @@ function getLogin()
           
            session_start();
            setcookie('prometheus', '', 86400); //Establecemos una cokkie de 1 dia
-           header('location:indexGati.php'); //Enviamos a la página para usuarios registrados
+           if($user['role'] === 'admin'){
+            header('location:indexTickets.php');
+           } else {
+            header('location:indexGati.php'); //Enviamos a la página para usuarios registrados
+           }
+           
            exit();
 
         }

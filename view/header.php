@@ -7,7 +7,6 @@
 <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
     
     <link href="./resources/css/styles.css" rel="stylesheet" />
-    <script src="./resources/js/bootstrap.min.js"></script>
     <script src="./resources/js/script.js"></script>
 </head>
 <body>
