@@ -21,27 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <li class="nav-item">
         <a class="nav-tip" href="index.php"><?php echo $_SESSION['user_name'] ?></a>
       </li>
-    <?php if($_SESSION['role'] === 'admin') { ?> 
-    <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Tickets Soporte
-          <span class="sr-only">(current)</span></a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="indexTickets.php">Todos</a>
-          <a class="dropdown-item" href="#">Pendientes</a>
-          <a class="dropdown-item" href="#">En proceso</a>
-          <a class="dropdown-item" href="#">Cerradas</a>
-          <!-- divisor
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Cerradas</a> -->
-        </div> 
-      </li>
+    
       <li class="nav-item">
         <a class="nav-link" href="#">Guía Telefonos</a>
       </li>
     </ul>
-  <?php
-  } ?>     
+  
 </nav>
 <?php if($_SESSION['role']=== 'user') {?>
   <form action="" method="post">
@@ -75,7 +60,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 </form>
-<?php }?>
+<?php }
+include('view_modelDescription.php');?>
+<script>
+    // Función para abrir la ventana modal
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    // Función para cerrar la ventana modal
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    // Abrir la ventana modal al cargar la página
+    window.onload = function() {
+        openModal();
+    };
+</script>
 
 <?php
 include('footer.php');

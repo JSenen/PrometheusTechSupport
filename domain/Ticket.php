@@ -78,7 +78,25 @@ public function update($dbh, $priority, $id, $gatiId){
 }
 }
 
+public function getDetailTicket($ticketId) {
+  try {
 
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+
+    $sql = "SELECT description, phone_unit, theme FROM tickets WHERE id = :ticket_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':ticket_id', $ticketId, PDO::PARAM_INT);
+    $stmt->execute();
+    $ticketDetail = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $ticketDetail;
+
+  }catch (PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+  }
+
+}
 }
 ?>
 
