@@ -17,7 +17,7 @@ $dateToday = date('Y-m-d');
 </script>
 <nav class="navbar-dark bg-dark navbar-vertical show">
   <ul class="navbar-nav">
-  <img src="./resources/img/parche-GAT2.png"  alt="" class="footer-img">
+  <img src="./resources/img/parche-GAT2.png"  alt="" width="100" height="100">
     <li class="nav-item">
         <a class="nav-tip" href="index.php"><?php echo $_SESSION['user_name'] ?></a>
       </li>
