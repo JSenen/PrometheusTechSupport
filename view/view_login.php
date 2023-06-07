@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<input type="text" name="tip" placeholder="TIP" />
 			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" />
 				<input type="text" name="unit" placeholder="Unidad" />
+				<input type="text" name="email" placeholder="Correo electrónico" />
 				<input type="password" name="pass" placeholder="Crear Password" />
-				<input type="password" name="pass" placeholder="Confirmar Password" />
 				<input type="submit" class="btn btn-primary" name="addregister" value="Registrar" />
 				<p class="signup">
 				  ¿Ya tiene una cuenta ?

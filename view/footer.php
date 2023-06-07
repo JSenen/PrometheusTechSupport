@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-left">
-            <p class="text-left">© 2023 <a href="#">JSenen</a>. All rights reserved. Created by <a href="#">GATI BARCELONA</a></p>
+            <p class="text-left">© 2023 <a href="#">JSenen & Rafael Chueco</a>. All rights reserved. Created by <a href="#">GATI BARCELONA</a></p>
           </div>
         </div>
       </div>

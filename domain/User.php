@@ -19,15 +19,16 @@ function getAllUserData(){
   );
   return $userData;
 }
-public function addNewUser($tip, $unit, $phone, $passwrd, $dbh){
+public function addNewUser($tip, $unit, $phone, $mail, $passwrd, $dbh){
   try {
     $passhash = password_hash($passwrd, PASSWORD_DEFAULT); //Ciframos contraseña
-    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit) VALUES (:user_name, :user_password, :user_phone, :user_unit )";
+    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit, user_mail) VALUES (:user_name, :user_password, :user_phone, :user_unit, :user_mail )";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':user_name', $tip, PDO::PARAM_STR);
             $stmt->bindParam(':user_password', $passhash, PDO::PARAM_STR);
             $stmt->bindParam(':user_phone', $phone, PDO::PARAM_STR);
             $stmt->bindParam(':user_unit', $unit, PDO::PARAM_STR);
+            $stmt->bindParam(':user_mail',$mail,PDO::PARAM_STR);
             
             $stmt->execute();
             
