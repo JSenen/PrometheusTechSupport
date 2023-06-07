@@ -23,7 +23,7 @@ $dateToday = date('Y-m-d');
       </li>
     <?php if($_SESSION['role'] === 'admin') { ?> 
     <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Tickets Soporte
         <div class="dropdown-menu">
         <a class="dropdown-item" href="indexTickets.php?state=all">Todos</a>
@@ -34,7 +34,11 @@ $dateToday = date('Y-m-d');
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Cerradas</a> -->
         </div> 
-        </li>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="#">Usuarios</a>
+    </li>
+      
       <li class="nav-item">
         <button type="button" class="btn btn-primary" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
       </li>
