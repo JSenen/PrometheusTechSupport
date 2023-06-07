@@ -68,8 +68,6 @@ function addNewUser(){
     $user_pass = htmlspecialchars(($_POST['pass']));
     $user_mail = htmlspecialchars($_POST['email']);
 
-    //TODO Comprobar campos rellenados correctamente y HASH password
-
     $user = new User();
     $user->addNewUser($user_tip, $user_unit, $user_phone,$user_mail ,$user_pass, $dbh);
     
