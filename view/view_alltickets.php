@@ -36,7 +36,7 @@ $dateToday = date('Y-m-d');
         </div> 
         </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Guía Telefonos</a>
+        <button type="button" class="btn btn-primary" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
       </li>
     </ul>
   <?php
