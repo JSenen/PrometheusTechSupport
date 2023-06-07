@@ -4,6 +4,7 @@ function listTickets($tickets){
   
 include('./view/view_alltickets.php');
 ?>
+
 <div class="container">
 
     <table class="table table-striped-custom table-fixed" id="tableListTickets">
@@ -29,6 +30,9 @@ include('./view/view_alltickets.php');
 ?>
 </table>
   </div>
+  <div class="container">
+<button type="button" class="btn btn-outline-info" onclick="location.reload()">Actualizar</button>
+</div>
   <script>
     $(document).ready(function() {
       $('#tableListTickets').DataTable({

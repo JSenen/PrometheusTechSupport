@@ -40,12 +40,13 @@ $dateToday = date('Y-m-d');
     </li>
       
       <li class="nav-item">
-        <button type="button" class="btn btn-primary" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
       </li>
     </ul>
   <?php
   } ?>     
 </nav>
+
 
 
 
