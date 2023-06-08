@@ -40,13 +40,13 @@ $dateToday = date('Y-m-d');
           $gatiId = $_SESSION['user_name'];
           if($ticket['priority'] == 'active'){?>
             <td style="font-size: 14px">
-              <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'fixing' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
+              <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
             </td>
             <td>---</td>
             <td>---</td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
-            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'fixed' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixed') { ?>
             <td style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>

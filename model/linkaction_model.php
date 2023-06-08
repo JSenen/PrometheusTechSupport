@@ -11,11 +11,11 @@ function changePriotityTicket($id, $accion, $gatiId){
   // Ejecutar la acción deseada
   if ($accion == 'resolver') {
     $ticket->update($dbh,'fixing', $id, $gatiId);
-    header('indexTickets.php');
+    header('location: indexTickets.php');
   }
   if ($accion == 'resuelto') {
     $ticket->update($dbh,'fixed', $id, $gatiId);
-    header('indexTickets.php');
+    header('location: indexTickets.php');
   }
   
 }
