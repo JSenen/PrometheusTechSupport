@@ -26,7 +26,7 @@ $dateToday = date('Y-m-d');
 </script>
       <tbody>
         <tr>
-          <td style="font-size: 14px"><?php echo $ticket['date_start']; ?></td>
+          <td style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
           <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
           <td style="font-size: 14px"><?php echo $ticket['description']; ?></td>
           <?php
@@ -57,7 +57,7 @@ $dateToday = date('Y-m-d');
             echo '<td style="font-size: 14px">---</td>';      
           }elseif ($ticket['priority'] == 'fixed') {
             echo '<td style="font-size: 14px">'. $ticket['technician_id'].'</td>';
-            echo '<td style="font-size: 14px">'. $dateToday.'</td>';            
+            echo '<td style="font-size: 14px">'. date('d-m-Y', strtotime($dateToday)).'</td>';            
           }    
           ?>
 

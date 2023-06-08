@@ -4,9 +4,10 @@ function listTickets($tickets){
   
 include('./view/view_alltickets.php');
 ?>
+
 <div class="container">
 
-    <table class="table table-striped-custom table-fixed">
+    <table class="table table-striped-custom table-fixed" id="tableListTickets">
       <thead>
         <tr>
         <th style="width: 9%" >Fecha</th>
@@ -29,5 +30,29 @@ include('./view/view_alltickets.php');
 ?>
 </table>
   </div>
+  <div class="container">
+<button type="button" class="btn btn-outline-info" onclick="location.reload()">Actualizar</button>
+</div>
+  <script>
+    $(document).ready(function() {
+      $('#tableListTickets').DataTable({
+        searching: false,
+        ordering: false,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Sin resultados - lo lamento",
+            "info": "Mostrando _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrando _MAX_ registros totales)",
+            "paginate": {
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+            
+        }
+
+      });
+    });
+  </script>
 <?php
 }

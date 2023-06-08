@@ -1,9 +1,6 @@
 <?php
 include('header.php');
-include_once('./model/listticket_model.php');
 require_once('./domain/User.php');
-require_once('./domain/Ticket.php');
-$dateToday = date('Y-m-d');
 ?>
 <style>
   .nav-tip {
@@ -22,7 +19,7 @@ $dateToday = date('Y-m-d');
         <a class="nav-tip" href="index.php"><?php echo $_SESSION['user_name'] ?></a>
       </li>
     <?php if($_SESSION['role'] === 'admin') { ?> 
-    <li class="nav-item dropdown active">
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Tickets Soporte
         <div class="dropdown-menu">
@@ -36,17 +33,16 @@ $dateToday = date('Y-m-d');
         </div> 
      </li>
      <li class="nav-item">
-        <a class="nav-link" href="#">Usuarios</a>
+        <a class="nav-link active" href="#">Usuarios</a>
     </li>
       
       <li class="nav-item">
-        <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href = '../gatiwp/index.php';">Web</button>
       </li>
     </ul>
   <?php
   } ?>     
 </nav>
-
 
 
 
