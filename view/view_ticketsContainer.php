@@ -28,7 +28,7 @@ $dateToday = date('Y-m-d');
         <tr>
           <td style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
           <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
-          <td style="font-size: 14px"><?php echo $ticket['description']; ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['description']; ?><a href="indexDetailTicket.php?ticketId=<?php $ticket['id']?>" class="btn btn-primary" id="DetailTicket">Detalle</a></td>
           <?php
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
@@ -63,4 +63,5 @@ $dateToday = date('Y-m-d');
 
         </tr>
       </tbody>
-    
+
+ 

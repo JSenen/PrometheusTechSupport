@@ -17,3 +17,11 @@ function updateTicket($id,$action,$gatiId){
   // Recargar la página utilizando JavaScript
   header('Location: indexTickets.php');
 }
+
+function ticketDetail($ticketId){
+  $ticket = new Ticket();
+  $ticket->getDetailTicket($ticketId);
+  include('./model/detailticket_model.php');
+  showTicketDetail($ticket);
+
+}

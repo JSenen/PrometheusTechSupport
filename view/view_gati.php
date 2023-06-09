@@ -1,12 +1,14 @@
 <?php
 include('header.php');
 include_once('./model/recordticket_model.php');
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if ($_POST['action'] === 'sendticket') {
 			// Lógica para procesar el formulario de inicio de sesión
 			// Llama a la función que deseas ejecutar para el inicio de sesión
 			addTicket();
+            header('location: view/view_popup.php');
 	} 
 }
 ?>

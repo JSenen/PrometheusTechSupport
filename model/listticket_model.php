@@ -3,6 +3,7 @@ include_once('./domain/Ticket.php');
 function listTickets($tickets){
   
 include('./view/view_alltickets.php');
+
 ?>
 
 <div class="container">
