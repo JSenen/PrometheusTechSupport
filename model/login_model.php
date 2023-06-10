@@ -52,7 +52,7 @@ function getLogin()
     }
   }
 }
-  /* TODO COMPROBAR CONDICIONALES */
+  // TODO COMPROBAR CONDICIONALES
 
 function addNewUser(){
   $conenection = new Conecction();
@@ -67,9 +67,16 @@ function addNewUser(){
     $user_pass = htmlspecialchars(($_POST['pass']));
     $user_mail = htmlspecialchars($_POST['email']);
 
+    //Comprobamos no existe usuario en el sistema
     $user = new User();
-    $user->addNewUser($user_tip, $user_unit, $user_phone,$user_mail ,$user_pass, $dbh);
-    
+    $search = $user->checkUser($user_tip);
+    if($search===false){
+      $user = new User();
+      $user->addNewUser($user_tip, $user_unit, $user_phone,$user_mail ,$user_pass, $dbh);
+    }else{
+      header('location: ./view/view_popupregister.php');
+    }
+      
     
     
   }

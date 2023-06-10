@@ -59,5 +59,17 @@ public function getUserofTicket($user_id){
   }
   return $userdata;
 }
+
+public function checkUser($user_tip) {
+  $connection = new Conecction();
+  $dbh = $connection->getConection();
+  $stmt = $dbh->prepare("SELECT * FROM users WHERE user_name = :user_tip");
+  $stmt->bindParam('user_tip',$user_tip,PDO::PARAM_STR);
+  $stmt->execute();
+
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  return ($result !== false); // Devuelve true si se encontró al menos un elemento, o false si no se encontró ninguno
+  
+}
 }
 ?>
