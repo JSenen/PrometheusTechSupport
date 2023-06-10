@@ -11,6 +11,7 @@ session_start();
     color: #F7D060; /* Cambia esto por el color que desees */
 }
 </style>
+
 <script>
   $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
@@ -47,10 +48,6 @@ session_start();
   <?php
   } ?>     
 </nav>
-
-
-
-
 <?php
 include('footer.php');
 ?>
