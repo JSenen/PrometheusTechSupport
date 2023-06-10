@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h4 class="mb-1">ALTA TICKET DE SOPORTE</h4>
             <div class="form-group">
             <label for="asunto">ASUNTO:</label>
-            <input type="text" class="form-control" name="theme_computer" placeholder="Ingrese asunto">
+            <input type="text" class="form-control" name="theme_computer" placeholder="Ingrese asunto" required>
         </div>
             <label for="nombre">Descripcion:</label>
-            <textarea class="form-control" name="description" placeholder="Detalle la incidencia" rows="6"></textarea>            
+            <textarea class="form-control" name="description" placeholder="Detalle la incidencia" rows="6" required></textarea>            
         </div>
         <div class="form-group">
             <label for="label">ETIQUETA EQUIPO:</label>

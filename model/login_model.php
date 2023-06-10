@@ -77,8 +77,6 @@ function addNewUser(){
       header('location: ./view/view_popupregister.php');
     }
       
-    
-    
   }
 
 
