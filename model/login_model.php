@@ -52,7 +52,7 @@ function getLogin()
     }
   }
 }
-  // TODO COMPROBAR CONDICIONALES
+ 
 
 function addNewUser(){
   $conenection = new Conecction();

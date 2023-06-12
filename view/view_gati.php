@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
             <label for="asunto">ASUNTO:</label>
             <input type="text" class="form-control" name="theme_computer" placeholder="Ingrese asunto" required>
+            
         </div>
             <label for="nombre">Descripcion:</label>
             <textarea class="form-control" name="description" placeholder="Detalle la incidencia" rows="6" required></textarea>            
@@ -64,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 <?php }
 include('view_modelDescription.php');?>
+
 <script>
     // Función para abrir la ventana modal
     function openModal() {
