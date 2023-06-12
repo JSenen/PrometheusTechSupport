@@ -32,12 +32,19 @@ include('./view/view_alltickets.php');
 <?php
         foreach ($tickets as $ticket) {
           $_SESSION['ticket_id'] = $ticket['id']; 
+          if($ticket['priority'] == 'fixing') {
+            $class_td_cell = "table-warning";
+          } elseif ($ticket['priority'] == 'active') {
+            $class_td_cell = "table-danger";
+          } else {
+            $class_td_cell = "table-success";
+          }
            ?>
-     
+          
           <tr>
-          <td style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
-          <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
-          <td style="font-size: 14px">
+          <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
+          <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
+          <td class="<?php echo $class_td_cell?>" style="font-size: 14px">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ticketDetails<?php echo $ticket['id']; ?>" aria-expanded="false" aria-controls="ticketDetails<?php echo $ticket['id']; ?>">
                                 Ver detalle
                             </button>
@@ -49,31 +56,31 @@ include('./view/view_alltickets.php');
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
             foreach ($userData as $user) {
-              echo '<td style="font-size: 14px">' . $user['user_name'] . '</td>';
-              echo '<td style="font-size: 14px">' . $user['user_unit'] . '</td>';
-              echo '<td style="font-size: 14px">' . $user['user_phone'] . '</td>';          
+              echo '<td class="'.$class_td_cell.'"style="font-size: 14px">' . $user['user_name'] . '</td>';
+              echo '<td class="'.$class_td_cell.'"style="font-size: 14px">' . $user['user_unit'] . '</td>';
+              echo '<td class="'.$class_td_cell.'"style="font-size: 14px">' . $user['user_phone'] . '</td>';          
             }
           $gatiId = $_SESSION['user_name'];
           if($ticket['priority'] == 'active'){?>
-            <td style="font-size: 14px">
+            <td class="<?php echo $class_td_cell?>" style="font-size: 14px">
               <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
             </td>
-            <td>---</td>
-            <td>---</td>
+            <td class="<?php echo $class_td_cell?>">---</td>
+            <td class="<?php echo $class_td_cell?>">---</td>
           <?php
           }elseif($ticket['priority'] == 'fixing') { ?>
-            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
+            <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
           <?php
           }elseif($ticket['priority'] == 'fixed') { ?>
-            <td style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>
+            <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>
           <?php
           }  
           if($ticket['priority'] == 'fixing') { 
-            echo '<td style="font-size: 14px">' . $ticket['technician_id'] . '</td>';     
-            echo '<td style="font-size: 14px">---</td>';      
+            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">' . $ticket['technician_id'] . '</td>';     
+            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">---</td>';      
           }elseif ($ticket['priority'] == 'fixed') {
-            echo '<td style="font-size: 14px">'. $ticket['technician_id'].'</td>';
-            echo '<td style="font-size: 14px">'. date('d-m-Y', strtotime($dateToday)).'</td>';            
+            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">'. $ticket['technician_id'].'</td>';
+            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">'. date('d-m-Y', strtotime($dateToday)).'</td>';            
           }    
           ?>
 
@@ -88,7 +95,7 @@ include('./view/view_alltickets.php');
   <script>
     $(document).ready(function() {
       $('#tableListTickets').DataTable({
-        
+        "order": [[ 0, "des" ]],
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Sin resultados - lo lamento",
@@ -101,6 +108,7 @@ include('./view/view_alltickets.php');
             },
             "search": "Buscar"             
         }
+        
 
       });
     });

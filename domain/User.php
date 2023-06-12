@@ -22,7 +22,7 @@ function getAllUserData(){
 public function addNewUser($tip, $unit, $phone, $mail, $passwrd, $dbh){
   try {
     $passhash = password_hash($passwrd, PASSWORD_DEFAULT); //Ciframos contraseña
-    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit, user_mail) VALUES (:user_name, :user_password, :user_phone, :user_unit, :user_mail )";
+    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit, user_email) VALUES (:user_name, :user_password, :user_phone, :user_unit, :user_mail )";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':user_name', $tip, PDO::PARAM_STR);
             $stmt->bindParam(':user_password', $passhash, PDO::PARAM_STR);
