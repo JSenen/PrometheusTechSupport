@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			  <form action="" method="post">
 				<h2>Login</h2>
 				<input type="hidden" name="action" value="login"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
-					<input type="text" name="username" placeholder="Usuario" />
-					<input type="password" name="password" placeholder="Password" />
+					<input type="text" name="username" placeholder="Usuario" required/>
+					<input type="password" name="password" placeholder="Password" required />
 					<input type="submit" class="btn btn-primary" value="Login" />
 						<p class="signup">
 							¿No dispone de cuenta?
@@ -58,11 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			  <form action="" method="post">
 				<h2>Crear cuenta</h2>
 				<input type="hidden" name="action" value="register"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
-				<input type="text" name="tip" placeholder="TIP" />
-			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" />
-				<input type="text" name="unit" placeholder="Unidad" />
-				<input type="text" name="email" placeholder="Correo electrónico" />
-				<input type="password" name="pass" placeholder="Crear Password" />
+				<input type="text" name="tip" placeholder="TIP" required/>
+			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" required/>
+				<input type="text" name="unit" placeholder="Unidad" required/>
+				<input type="text" name="email" placeholder="Correo electrónico" required/>
+				<input type="password" name="pass" placeholder="Crear Password" required/>
 				<input type="submit" class="btn btn-primary" name="addregister" value="Registrar" />
 				<p class="signup">
 				  ¿Ya tiene una cuenta ?

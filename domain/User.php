@@ -22,7 +22,7 @@ function getAllUserData(){
 public function addNewUser($tip, $unit, $phone, $mail, $passwrd, $dbh){
   try {
     $passhash = password_hash($passwrd, PASSWORD_DEFAULT); //Ciframos contraseña
-    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit, user_mail) VALUES (:user_name, :user_password, :user_phone, :user_unit, :user_mail )";
+    $sql = "INSERT INTO users (user_name, user_password, user_phone, user_unit, user_email) VALUES (:user_name, :user_password, :user_phone, :user_unit, :user_mail )";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':user_name', $tip, PDO::PARAM_STR);
             $stmt->bindParam(':user_password', $passhash, PDO::PARAM_STR);
@@ -58,6 +58,18 @@ public function getUserofTicket($user_id){
     echo "ERROR" . $exc->getMessage();
   }
   return $userdata;
+}
+
+public function checkUser($user_tip) {
+  $connection = new Conecction();
+  $dbh = $connection->getConection();
+  $stmt = $dbh->prepare("SELECT * FROM users WHERE user_name = :user_tip");
+  $stmt->bindParam('user_tip',$user_tip,PDO::PARAM_STR);
+  $stmt->execute();
+
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  return ($result !== false); // Devuelve true si se encontró al menos un elemento, o false si no se encontró ninguno
+  
 }
 }
 ?>

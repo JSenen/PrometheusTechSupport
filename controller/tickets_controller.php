@@ -15,5 +15,13 @@ function updateTicket($id,$action,$gatiId){
   include('./model/linkaction_model.php');
   changePriotityTicket($id,$action,$gatiId);
   // Recargar la página utilizando JavaScript
-  header('Location: indexTickets.php');
+  header('Location: indexTickets.php?controller=tickets&action=ticketsList');
+}
+
+function ticketDetail($ticketId){
+  $ticket = new Ticket();
+  $ticket->getDetailTicket($ticketId);
+  include('./model/detailticket_model.php');
+  showTicketDetail($ticket);
+
 }

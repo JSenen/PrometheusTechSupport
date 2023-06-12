@@ -3,7 +3,7 @@ class Ticket
 {
 public DateTime $datestart;
 public DateTime $dateEnd;
-public String $description;
+public String $description = '';
 public String $phoneNumber;
 public String $theme;
 public int $userid;
@@ -23,14 +23,7 @@ function recordTicket($dbh, $theme, $description, $label, $ipcomputer, $userphon
     $stmt->bindParam(':user_id', $userid, PDO::PARAM_INT);
     $stmt->bindParam(':date_start', $date_start, PDO::PARAM_STR);
     $stmt->execute();
-
-    echo '<script>';
-    echo 'alert("TICKET ENVIADO");';
-    echo '</script>';
-
-    $sec = 5; 
-    header("Refresh: $sec; url=index.php"); 
-
+ 
   } catch (PDOException $e) {
     echo "ERROR: " . $e->getMessage();
   }
@@ -83,8 +76,8 @@ public function getDetailTicket($ticketId) {
 
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
-
-    $sql = "SELECT description, phone_unit, theme FROM tickets WHERE id = :ticket_id";
+    
+    $sql = "SELECT date_start, description, phone_unit, theme, user_id FROM ticket WHERE id = :ticket_id";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':ticket_id', $ticketId, PDO::PARAM_INT);
     $stmt->execute();
@@ -97,6 +90,7 @@ public function getDetailTicket($ticketId) {
   }
 
 }
+
 }
 ?>
 

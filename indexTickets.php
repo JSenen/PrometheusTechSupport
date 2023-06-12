@@ -1,19 +1,25 @@
 <?php
-session_start();
+
 $state = $_GET['state'] ?? "all";
 
 define('CONTROLLER_FOLDER', "controller/"); //Directorio donde definimos los controladores
-define('DEFAULT_CONTROLLER', "tickets"); //Controlador por defecto
-define('DEFAULT_ACTION', "ticketsList"); //Accion por defecto
+define('DEFAULT_CONTROLLER', "start"); //Controlador por defecto
+define('DEFAULT_ACTION', "firstPage"); //Accion por defecto
 
-//Obtenemos el controlador. Si no por defecto
-$controller = DEFAULT_CONTROLLER;
-if (!empty($_GET['controller']))
+//Obtener controlador y accion, si no por defecto
+
+if (isset($_GET['controller'])) {  
   $controller = $_GET['controller'];
-//Obtenemos la accion deseada. Si no por defecto
-$action = DEFAULT_ACTION;
-if (!empty($_GET['action']))
+}else {
+  $controller = DEFAULT_CONTROLLER;
+}
+
+if (isset($_GET['action'])) {
   $action = $_GET['action'];
+}else{
+  $action = DEFAULT_ACTION;
+}
+
 
 //Formacion del fichero que contiene el controlador
 $controller = CONTROLLER_FOLDER . $controller . '_controller.php';

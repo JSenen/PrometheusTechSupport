@@ -30,13 +30,12 @@ function getLogin()
            $_SESSION['user_unit'] = $user['user_unit']; 
            $_SESSION['role'] = $user['role'];
            $_SESSION['user_phone'] = $user['user_phone']; 
-          
-           session_start();
+        
            setcookie('prometheus', '', 86400); //Establecemos una cokkie de 1 dia
            if($user['role'] === 'admin'){
-            header('location:indexTickets.php');
-           } else {
-            header('location:indexGati.php'); //Enviamos a la página para usuarios registrados
+            header('location:indexTickets.php?controller=tickets&action=ticketsList');
+           } elseif ($user['role'] === 'user'){
+            header('location:indexTickets.php?controller=start&action=firstPage'); //Enviamos a la página para usuarios registrados
            }
            
            exit();
@@ -53,7 +52,7 @@ function getLogin()
     }
   }
 }
-  /* TODO COMPROBAR CONDICIONALES */
+ 
 
 function addNewUser(){
   $conenection = new Conecction();
@@ -68,11 +67,16 @@ function addNewUser(){
     $user_pass = htmlspecialchars(($_POST['pass']));
     $user_mail = htmlspecialchars($_POST['email']);
 
+    //Comprobamos no existe usuario en el sistema
     $user = new User();
-    $user->addNewUser($user_tip, $user_unit, $user_phone,$user_mail ,$user_pass, $dbh);
-    
-    
-    
+    $search = $user->checkUser($user_tip);
+    if($search===false){
+      $user = new User();
+      $user->addNewUser($user_tip, $user_unit, $user_phone,$user_mail ,$user_pass, $dbh);
+    }else{
+      header('location: ./view/view_popupregister.php');
+    }
+      
   }
 
 
