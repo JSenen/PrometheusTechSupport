@@ -5,6 +5,7 @@ function listTickets($tickets){
 include('./view/view_alltickets.php');
 
 ?>
+<!-- JQuey DataTables -->
 <script src="./resources/js/jquery-3.7.0.min.js"></script>
 <script src="./resources/DataTables/DataTables-1.13.4/js/jquery.dataTables.min.js" ></script>
 
@@ -90,8 +91,8 @@ include('./view/view_alltickets.php');
             "paginate": {
               "next": "Siguiente",
               "previous": "Anterior"
-            }
-            
+            },
+            "search": "Buscar"             
         }
 
       });
