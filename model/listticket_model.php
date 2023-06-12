@@ -1,9 +1,13 @@
 <?php
 include_once('./domain/Ticket.php');
+include('./view/header.php');
 function listTickets($tickets){
 include('./view/view_alltickets.php');
 
 ?>
+<script src="./resources/js/jquery-3.7.0.min.js"></script>
+<script src="./resources/DataTables/DataTables-1.13.4/js/jquery.dataTables.min.js" ></script>
+
 
 <div class="container">
 
@@ -22,22 +26,61 @@ include('./view/view_alltickets.php');
         
         </tr>
       </thead> 
+      <tbody>
+     
 <?php
         foreach ($tickets as $ticket) {
           $_SESSION['ticket_id'] = $ticket['id']; 
-          include('./view/view_ticketsContainer.php');
+           ?>
+     
+          <tr>
+          <td style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
+          <td style="font-size: 14px"><?php echo $ticket['description']; ?><a href="indexDetailTicket.php?ticketId=<?php $ticket['id']?>" class="btn btn-primary" id="DetailTicket">Detalle</a></td>
+          <?php
+            $user = new User();
+            $userData = $user->getUserofTicket($ticket['user_id']);
+            foreach ($userData as $user) {
+              echo '<td style="font-size: 14px">' . $user['user_name'] . '</td>';
+              echo '<td style="font-size: 14px">' . $user['user_unit'] . '</td>';
+              echo '<td style="font-size: 14px">' . $user['user_phone'] . '</td>';          
+            }
+          $gatiId = $_SESSION['user_name'];
+          if($ticket['priority'] == 'active'){?>
+            <td style="font-size: 14px">
+              <a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resolver' ?>&gatiId=<?= $gatiId ?>"  class="btn btn-danger">Resolver</a>
+            </td>
+            <td>---</td>
+            <td>---</td>
+          <?php
+          }elseif($ticket['priority'] == 'fixing') { ?>
+            <td style="font-size: 14px"><a href="indexUpdateTicket.php?id=<?= $ticket['id']; ?>&state=<?= 'resuelto' ?>&gatiId=<?= $gatiId ?>"class="btn btn-warning">En Proceso</a></td>
+          <?php
+          }elseif($ticket['priority'] == 'fixed') { ?>
+            <td style="font-size: 14px"><a href="#" class="btn btn-success">Solucionado</a></td>
+          <?php
+          }  
+          if($ticket['priority'] == 'fixing') { 
+            echo '<td style="font-size: 14px">' . $ticket['technician_id'] . '</td>';     
+            echo '<td style="font-size: 14px">---</td>';      
+          }elseif ($ticket['priority'] == 'fixed') {
+            echo '<td style="font-size: 14px">'. $ticket['technician_id'].'</td>';
+            echo '<td style="font-size: 14px">'. date('d-m-Y', strtotime($dateToday)).'</td>';            
+          }    
+          ?>
+
+        </tr>
+       
+        <?php
         }
 ?>
-</table>
+ </tbody>
+ </table>
   </div>
-  <div class="container">
-<button type="button" class="btn btn-outline-info" onclick="location.reload()">Actualizar</button>
-</div>
   <script>
     $(document).ready(function() {
       $('#tableListTickets').DataTable({
-        searching: false,
-        ordering: false,
+        
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Sin resultados - lo lamento",
@@ -54,6 +97,11 @@ include('./view/view_alltickets.php');
       });
     });
   </script>
-  
+
+  <div class="container">
+<button type="button" class="btn btn-outline-info" onclick="location.reload()">Actualizar</button>
+</div>
+
 <?php
 }
+

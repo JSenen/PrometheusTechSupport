@@ -7,9 +7,10 @@
 <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
   <link href="./resources/css/styles.css" rel="stylesheet" />
 <!-- JQuery -->
-<link href="./resources/DataTables/datatables.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="./resources/DataTables/datatables.min.css" />
 </head>
 <body>
+
 
   
   
