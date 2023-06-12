@@ -12,7 +12,7 @@ include('./view/view_alltickets.php');
 
 <div class="container">
 
-    <table class="table table-striped-custom table-fixed" id="tableListTickets">
+    <table class="table table-striped table-fixed" id="tableListTickets">
       <thead>
         <tr>
         <th style="width: 9%" >Fecha</th>
@@ -37,7 +37,14 @@ include('./view/view_alltickets.php');
           <tr>
           <td style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
           <td style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
-          <td style="font-size: 14px"><?php echo $ticket['description']; ?><a href="indexDetailTicket.php?ticketId=<?php $ticket['id']?>" class="btn btn-primary" id="DetailTicket">Detalle</a></td>
+          <td style="font-size: 14px">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ticketDetails<?php echo $ticket['id']; ?>" aria-expanded="false" aria-controls="ticketDetails<?php echo $ticket['id']; ?>">
+                                Ver detalle
+                            </button>
+                            <div class="collapse" id="ticketDetails<?php echo $ticket['id']; ?>">
+                                <?php echo $ticket['description']; ?>
+                            </div>
+                        </td>
           <?php
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
