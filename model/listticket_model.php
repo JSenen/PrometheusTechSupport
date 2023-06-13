@@ -20,10 +20,10 @@ function listTickets($tickets)
           <th style="width: 44.5%">Asunto</th>
           <th style="width: 6%">Usuario</th>
           <th style="width: 13%">Unidad</th>
-          <th style="width: 6%">Teléfono</th>
+          <th style="width: 5%">Teléfono</th>
           <th style="width: 8%">Estado</th>
           <th style="width: 6%">Resuelve</th>
-          <th style="width: 8.5%">Fecha Fin</th>
+          <th style="width: 15%">Fecha Fin</th>
 
         </tr>
       </thead>
@@ -88,7 +88,7 @@ function listTickets($tickets)
               echo '<td class="' . $class_td_cell . '"style="font-size: 14px">---</td>';
             } elseif ($ticket['priority'] == 'fixed') {
               echo '<td class="' . $class_td_cell . '"style="font-size: 14px">' . $ticket['technician_id'] . '</td>';
-              echo '<td class="' . $class_td_cell . '"style="font-size: 14px">' . date('d/m/Y', strtotime($dateToday)) . '</td>';
+              echo '<td class="' . $class_td_cell . '"style="font-size: 14px">' . date('d/m/Y', strtotime($dateToday)) .'</td>';
             }
             ?>
 
