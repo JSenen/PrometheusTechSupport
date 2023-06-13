@@ -15,15 +15,15 @@ include('./view/view_alltickets.php');
     <table class="table table-striped table-fixed" id="tableListTickets">
       <thead>
         <tr>
-        <th style="width: 9%" >Fecha</th>
-        <th style="width: 18%">Asunto</th>
-        <th style="width: 20%">Descripción</th>
-        <th style="width: 7%">Usuario</th>
+        <th style="width: 8.5%" >Fecha</th>
+        <th style="width: 15%">Asunto</th>
+        <th style="width: 29.5%">Descripción</th>
+        <th style="width: 6%">Usuario</th>
         <th style="width: 13%">Unidad</th>
-        <th style="width: 7%">Teléfono</th>
-        <th style="width: 10%">Estado</th>
-        <th style="width: 8%">Resuelve</th>
-        <th style="width: 11%">Fecha Fin</th>
+        <th style="width: 6%">Teléfono</th>
+        <th style="width: 8%">Estado</th>
+        <th style="width: 6%">Resuelve</th>
+        <th style="width: 8.5%">Fecha Fin</th>
         
         </tr>
       </thead> 
@@ -42,16 +42,19 @@ include('./view/view_alltickets.php');
            ?>
           
           <tr>
-          <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo date('d-m-Y', strtotime($ticket['date_start'])); ?></td>
+          <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo date('d/m/Y', strtotime($ticket['date_start'])); ?></td>
           <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
           <td class="<?php echo $class_td_cell?>" style="font-size: 14px">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ticketDetails<?php echo $ticket['id']; ?>" aria-expanded="false" aria-controls="ticketDetails<?php echo $ticket['id']; ?>">
-                                Ver detalle
+                                <img src="./resources/img/lista.png" width="25px" height="25px "alt="">
                             </button>
-                            <div class="collapse" id="ticketDetails<?php echo $ticket['id']; ?>">
+                            <div class="collapse " id="ticketDetails<?php echo $ticket['id']; ?>" style="text-align: justify; width: auto;">
                                 <?php echo $ticket['description']; ?>
                             </div>
-                        </td>
+
+                            
+                            
+          </td>
           <?php
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
@@ -80,7 +83,7 @@ include('./view/view_alltickets.php');
             echo '<td class="'.$class_td_cell.'"style="font-size: 14px">---</td>';      
           }elseif ($ticket['priority'] == 'fixed') {
             echo '<td class="'.$class_td_cell.'"style="font-size: 14px">'. $ticket['technician_id'].'</td>';
-            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">'. date('d-m-Y', strtotime($dateToday)).'</td>';            
+            echo '<td class="'.$class_td_cell.'"style="font-size: 14px">'. date('d/m/Y', strtotime($dateToday)).'</td>';            
           }    
           ?>
 
