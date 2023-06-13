@@ -57,11 +57,13 @@ public function getTickets($dbh, $state) {
 
 public function update($dbh, $priority, $id, $gatiId){
   try {
-
-    $sql = "UPDATE ticket SET priority = :priority, technician_id = :gatiId WHERE id = :id";
+    $dateToday = date('Y-m-d');
+    $date_end = date('Y-m-d', strtotime($dateToday));
+    $sql = "UPDATE ticket SET priority = :priority, technician_id = :gatiId, date_end = :dateEnd WHERE id = :id";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
             $stmt->bindParam(':gatiId', $gatiId, PDO::PARAM_STR);
+            $stmt->bindParam(':dateEnd', $date_end, PDO::PARAM_STR);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                      
             $stmt->execute();
