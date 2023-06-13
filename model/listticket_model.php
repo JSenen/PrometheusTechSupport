@@ -16,8 +16,7 @@ include('./view/view_alltickets.php');
       <thead>
         <tr>
         <th style="width: 8.5%" >Fecha</th>
-        <th style="width: 15%">Asunto</th>
-        <th style="width: 29.5%">Descripción</th>
+        <th style="width: 44.5%">Asunto</th>
         <th style="width: 6%">Usuario</th>
         <th style="width: 13%">Unidad</th>
         <th style="width: 6%">Teléfono</th>
@@ -43,18 +42,16 @@ include('./view/view_alltickets.php');
           
           <tr>
           <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo date('d/m/Y', strtotime($ticket['date_start'])); ?></td>
-          <td class="<?php echo $class_td_cell?>" style="font-size: 14px"><?php echo $ticket['theme']; ?></td>
           <td class="<?php echo $class_td_cell?>" style="font-size: 14px">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ticketDetails<?php echo $ticket['id']; ?>" aria-expanded="false" aria-controls="ticketDetails<?php echo $ticket['id']; ?>">
-                                <img src="./resources/img/lista.png" width="25px" height="25px "alt="">
-                            </button>
-                            <div class="collapse " id="ticketDetails<?php echo $ticket['id']; ?>" style="text-align: justify; width: auto;">
-                                <?php echo $ticket['description']; ?>
-                            </div>
-
-                            
-                            
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ticketDetails<?php echo $ticket['id']; ?>" aria-expanded="false" aria-controls="ticketDetails<?php echo $ticket['id']; ?>">
+                <img src="./resources/img/mas.png" width="25px" height="25px "alt="">
+            </button>
+            <div class="collapse " id="ticketDetails<?php echo $ticket['id']; ?>" style="text-align: justify; width: auto;">
+                <?php echo $ticket['description']; ?>
+            </div>
+             <?php echo $ticket['theme']; ?>
           </td>
+          
           <?php
             $user = new User();
             $userData = $user->getUserofTicket($ticket['user_id']);
