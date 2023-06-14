@@ -76,45 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				  <a href="#" onclick="toggleForm();">Login.</a>
 				</p>
 			  </form>
-				<script>
-      var TIPInput = document.getElementById('TIPInput');
-      var tipValidation = document.getElementById('tipValidation');
-
-      TIPInput.addEventListener('blur', function() {
-        var tip = TIPInput.value;
-        if (!validateTIP(tip)) {
-          TIPInput.classList.add('is-invalid');
-          tipValidation.style.display = 'block';
-        } else {
-          TIPInput.classList.remove('is-invalid');
-          tipValidation.style.display = 'none';
-        }
-      });
-
-      var emailInput = document.getElementById('emailInput');
-      var emailValidation = document.getElementById('emailValidation');
-
-      emailInput.addEventListener('blur', function() {
-        var email = emailInput.value;
-        if (!validateEmail(email)) {
-          emailInput.classList.add('is-invalid');
-          emailValidation.style.display = 'block';
-        } else {
-          emailInput.classList.remove('is-invalid');
-          emailValidation.style.display = 'none';
-        }
-      });
-
-      function validateTIP(tip) {
-        var regex = /^[a-zA-Z][0-9]{5}[A-Za-z]$/;
-        return regex.test(tip);
-      }
-
-      function validateEmail(email) {
-        var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return regex.test(email);
-      }
-    </script>
+				<script>setupFormValidations()</script>
 			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
 			<div class="imgBx bg-black img-fluid"><img src="./resources/img/parche-GATI-login.png" class="img-fluid "width="50" height="50" alt="" /></div>

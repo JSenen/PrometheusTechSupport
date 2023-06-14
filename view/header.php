@@ -9,6 +9,7 @@
 <!-- JQuery -->
 <link rel="stylesheet" href="./resources/DataTables/datatables.min.css" />
 <script src="./resources/js/script.js"></script>
+<script src="./resources/js/validation.js"></script>
 </head>
 <body>
 
