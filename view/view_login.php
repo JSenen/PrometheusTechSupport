@@ -61,7 +61,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<input type="text" name="tip" placeholder="TIP" required/>
 			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" required/>
 				<input type="text" name="unit" placeholder="Unidad" required/>
-				<input type="text" name="email" placeholder="Correo electrónico" required/>
+				<input type="text" name="email" id="emailInput" placeholder="Correo electrónico" class="form-control" />
+					<div id="emailValidation" class="invalid-feedback">
+						Por favor, ingresa un correo electrónico válido.
+					</div>
+
+						<script>
+							var emailInput = document.getElementById('emailInput');
+							var emailValidation = document.getElementById('emailValidation');
+
+							emailInput.addEventListener('blur', function() {
+								var email = emailInput.value;
+								if (!validateEmail(email)) {
+									emailValidation.style.display = 'block';
+									emailInput.classList.add('is-invalid');
+								} else {
+									emailValidation.style.display = 'none';
+									emailInput.classList.remove('is-invalid');
+								}
+							});
+
+							function validateEmail(email) {
+								var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+								return regex.test(email);
+							}
+						</script>
 				<input type="password" name="pass" placeholder="Crear Password" required/>
 				<input type="submit" class="btn btn-primary" name="addregister" value="Registrar" />
 				<p class="signup">
