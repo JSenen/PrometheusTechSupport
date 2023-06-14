@@ -58,34 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			  <form action="" method="post">
 				<h2>Crear cuenta</h2>
 				<input type="hidden" name="action" value="register"> <!-- Agrega un campo oculto con el valor de acción para identificar el formulario -->
-				<input type="text" name="tip" placeholder="TIP" required/>
+				<input type="text" name="tip" id="TIPInput" placeholder="TIP" class="form-cotrol"/>
+							<div id="tipValidation" class="invalid-feedback">
+								Por favor, introduzca TIP valida
+							</div>
+
 			  <input type="text" name="oficialPhone" placeholder="Telefono Oficial" required/>
 				<input type="text" name="unit" placeholder="Unidad" required/>
 				<input type="text" name="email" id="emailInput" placeholder="Correo electrónico" class="form-control" />
 					<div id="emailValidation" class="invalid-feedback">
 						Por favor, ingresa un correo electrónico válido.
 					</div>
-
-						<script>
-							var emailInput = document.getElementById('emailInput');
-							var emailValidation = document.getElementById('emailValidation');
-
-							emailInput.addEventListener('blur', function() {
-								var email = emailInput.value;
-								if (!validateEmail(email)) {
-									emailValidation.style.display = 'block';
-									emailInput.classList.add('is-invalid');
-								} else {
-									emailValidation.style.display = 'none';
-									emailInput.classList.remove('is-invalid');
-								}
-							});
-
-							function validateEmail(email) {
-								var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-								return regex.test(email);
-							}
-						</script>
 				<input type="password" name="pass" placeholder="Crear Password" required/>
 				<input type="submit" class="btn btn-primary" name="addregister" value="Registrar" />
 				<p class="signup">
@@ -93,6 +76,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				  <a href="#" onclick="toggleForm();">Login.</a>
 				</p>
 			  </form>
+				<script>
+      var TIPInput = document.getElementById('TIPInput');
+      var tipValidation = document.getElementById('tipValidation');
+
+      TIPInput.addEventListener('blur', function() {
+        var tip = TIPInput.value;
+        if (!validateTIP(tip)) {
+          TIPInput.classList.add('is-invalid');
+          tipValidation.style.display = 'block';
+        } else {
+          TIPInput.classList.remove('is-invalid');
+          tipValidation.style.display = 'none';
+        }
+      });
+
+      var emailInput = document.getElementById('emailInput');
+      var emailValidation = document.getElementById('emailValidation');
+
+      emailInput.addEventListener('blur', function() {
+        var email = emailInput.value;
+        if (!validateEmail(email)) {
+          emailInput.classList.add('is-invalid');
+          emailValidation.style.display = 'block';
+        } else {
+          emailInput.classList.remove('is-invalid');
+          emailValidation.style.display = 'none';
+        }
+      });
+
+      function validateTIP(tip) {
+        var regex = /^[a-zA-Z][0-9]{5}[A-Za-z]$/;
+        return regex.test(tip);
+      }
+
+      function validateEmail(email) {
+        var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return regex.test(email);
+      }
+    </script>
 			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
 			<div class="imgBx bg-black img-fluid"><img src="./resources/img/parche-GATI-login.png" class="img-fluid "width="50" height="50" alt="" /></div>
