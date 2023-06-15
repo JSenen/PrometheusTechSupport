@@ -12,4 +12,10 @@ function registerUser()
 { 
   addNewUser();
 }
+
+function recoverPassword()
+{
+  require ('./model/recoverpassword_model.php');
+  getNewPassword();
+}
 ?>

@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p class="signup">
 				  ¿Ya tiene una cuenta ?
 				  <a href="#" onclick="toggleForm();">Login.</a>
-					<a href="./model/sendmail_model.php">Prueba Mail</a>
+					<a href="indexTickets.php?controller=login&action=recoverpassword">Recuperar contraseña</a>
 				</p>
 			  </form>
 				<script>setupFormValidations()</script>
