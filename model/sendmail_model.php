@@ -1,10 +1,11 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-require './resources/phpmailer/Exception.php';
-require './resources/phpmailer/PHPMailer.php';
-require './resources/phpmailer/SMTP.php';
+require '../resources/phpmailer/Exception.php';
+require '../resources/phpmailer/PHPMailer.php';
+require '../resources/phpmailer/SMTP.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -16,7 +17,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';                       //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'gati.zon.barcelona@gmail.com';         //SMTP username
-    $mail->Password   = '3-Aminavara';                          //SMTP password
+    $mail->Password   = 'gndiiefppltqqqza';                          //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
