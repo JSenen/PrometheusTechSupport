@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-include('./model/recoverpassword_model.php');
+
 include('./model/sendmail_model.php');          //TODO cambiar tras pruebas
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if ($_POST['action'] === 'recover') {
