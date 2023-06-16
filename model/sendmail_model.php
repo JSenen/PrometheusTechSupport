@@ -22,9 +22,9 @@ try {
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('gati.zon.barcelona@gmail.com', 'GATI Barcelona PRUEBAS');
-    $mail->addAddress('b-cmd-barcelona-gati@guardiacivil.org', 'GATI Prueba envio PROMETHEUS');     //Add a recipient
-    $mail->addReplyTo('jsenen@guardiacivil.es', 'Prueba REENVIO PROMETHEUS MAIL');
+    $mail->setFrom('b-cmd-barcelona-gati@guardiacivil.org', 'GATI Barcelona PRUEBAS ENVIO OUTLOOK');
+    $mail->addAddress('jsenen@guardiacivil.org', 'GATI Prueba envio PROMETHEUS desde OUTLOOK');     //Add a recipient
+    $mail->addReplyTo('jsenen@guardiacivil.es', 'Prueba REENVIO PROMETHEUS MAIL OTRA DIRECCION');
     $mail->addCC('jsenen@guardiacivil.es');
     $mail->addBCC('jsenen@guardiacivil.es');
 
