@@ -16,14 +16,14 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                       //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = '';         //SMTP username
-    $mail->Password   = '';                                     //SMTP password
+    $mail->Username   = 'gati.zon.barcelona@gmail.com';         //SMTP username
+    $mail->Password   = 'gndiiefppltqqqza';                                     //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('b-cmd-barcelona-gati@guardiacivil.org', 'GATI Barcelona PRUEBAS ENVIO OUTLOOK');
-    $mail->addAddress('jsenen@guardiacivil.org', 'GATI Prueba envio PROMETHEUS desde OUTLOOK');     //Add a recipient
+    $mail->setFrom('gati.zon.barcelona@gmail.com', 'GATI Barcelona PRUEBAS ENVIO GMAIL');
+    $mail->addAddress('jsenen@guardiacivil.org', 'GATI Prueba envio PROMETHEUS desde GMAIL');     //Add a recipient
     $mail->addReplyTo('jsenen@guardiacivil.es', 'Prueba REENVIO PROMETHEUS MAIL OTRA DIRECCION');
     $mail->addCC('jsenen@guardiacivil.es');
     $mail->addBCC('jsenen@guardiacivil.es');
