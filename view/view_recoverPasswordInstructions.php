@@ -1,5 +1,14 @@
 <?php
 include('header.php');
+include('./model/recoverpassword_model.php');
+include('./model/sendmail_model.php');          //TODO cambiar tras pruebas
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	if ($_POST['action'] === 'recover') {
+			// Lógica para procesar el formulario de inicio de sesión
+			// Llama a la función que deseas ejecutar para el inicio de sesión
+			sendMailtoUser();
+  }
+}
 ?>
 <style>
   .nav-tip {
@@ -32,6 +41,7 @@ include('header.php');
 								Por favor, introduzca TIP valida
 							</div>
 				<input type="submit" class="btn btn-primary form-control" name="tipRecover" value="Restablecer Contraseña" />
+        <input type="hidden" name="action" value="recoverPassword">
 			  </form>
 				<script>setupFormValidations()</script>
 		
